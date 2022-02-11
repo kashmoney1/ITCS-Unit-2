@@ -27,7 +27,8 @@ public class BouncingBall extends JPanel {
         image =  new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         g = image.getGraphics();
 
-        balls = new Ball[20];
+        // Make 50 balls
+        balls = new Ball[50];
         for (int i = 0; i < balls.length; i++) {
             balls[i] = new Ball(200, 200, 50, new Color((int) (Math.random()*255), (int) (Math.random()*255), (int) (Math.random()*255)));
             balls[i].setRandomSpeed(10);
