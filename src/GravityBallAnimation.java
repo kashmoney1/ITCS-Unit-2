@@ -7,6 +7,7 @@ public class GravityBallAnimation extends JPanel {
 
     private static final int WIDTH = 600;
     private static final int HEIGHT = 600;
+    private static final int deltaTime = 10;
 
     // required global variables
     private BufferedImage image;
@@ -22,10 +23,10 @@ public class GravityBallAnimation extends JPanel {
         ball = new GravityBall(200, 200, 20, Color.RED);
         ball.setXAcceleration(0.0);
         ball.setYAcceleration(9.8);
-        ball.setInitialVelocity(30, 45);
+        ball.setInitialVelocity(10, 45);
 
 
-        timer = new Timer(10, new TimerListener());
+        timer = new Timer(deltaTime, new TimerListener());
         timer.start();
 
     }
@@ -37,6 +38,8 @@ public class GravityBallAnimation extends JPanel {
 
             g.setColor(Color.BLUE);
             g.fillRect(0, 0, WIDTH, HEIGHT);
+            ball.launch(0, 0, deltaTime);
+            ball.draw(g);
 
             repaint();
         }
