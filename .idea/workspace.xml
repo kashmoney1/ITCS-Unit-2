@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aabebb94-bdaf-4954-a1a5-a3a2ba377af5" name="Changes" comment="" />
+    <list default="true" id="aabebb94-bdaf-4954-a1a5-a3a2ba377af5" name="Changes" comment="Created">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +37,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Application.BouncingBall">
+  <component name="RunManager" selected="Application.GravityBallAnimation">
     <configuration name="BouncingBall" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BouncingBall" />
       <module name="ITCS Unit 2 Graphics" />
@@ -50,6 +52,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="GravityBallAnimation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GravityBallAnimation" />
+      <module name="ITCS Unit 2 Graphics" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Liftoff" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Liftoff" />
       <module name="ITCS Unit 2 Graphics" />
@@ -59,6 +68,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GravityBallAnimation" />
         <item itemvalue="Application.Liftoff" />
         <item itemvalue="Application.BouncingBallTester" />
       </list>
@@ -74,13 +84,59 @@
       <updated>1644422680765</updated>
       <workItem from="1644593220691" duration="290000" />
       <workItem from="1644593535404" duration="193000" />
+      <workItem from="1644593770460" duration="4335000" />
+      <workItem from="1644849265400" duration="352000" />
     </task>
+    <task id="LOCAL-00001" summary="50 balls instead of 20">
+      <created>1644593801823</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1644593801823</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Settings">
+      <created>1644593811409</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1644593811409</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Created">
+      <created>1644600243016</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1644600243016</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Created">
+      <created>1644705537730</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1644705537730</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="50 balls instead of 20" />
+    <MESSAGE value="Settings" />
+    <MESSAGE value="Created" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>
