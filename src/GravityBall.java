@@ -39,36 +39,33 @@ public class GravityBall extends Ball {
 
     public void launch(int rightEdge, int bottomEdge, double deltaTime) {
 
-        double x = getX();
-        double xSpeed = getXSpeed();
         double radius = getRadius();
-        double y = getY();
-        double ySpeed = getYSpeed();
+        deltaTime /= 1000;
 
-        xSpeed = xSpeed + xAcceleration * deltaTime;
-        ySpeed = ySpeed + yAcceleration * deltaTime;
+        setXSpeed(getXSpeed() + xAcceleration * deltaTime);
+        setYSpeed(getYSpeed() + yAcceleration * deltaTime);
 
-        x += xSpeed;
-        y += ySpeed;
+        setX(getX() + getXSpeed());
+        setY(getY() + getYSpeed());
 
-        if (x - radius <= 0) {
-            xSpeed *= -1;
-            x = 0 + radius;
+        if (getX() - radius <= 0) {
+            setXSpeed(getXSpeed() * -1);
+            setX(0 + radius);
         }
 
-        if (x + radius >= rightEdge) {
-            xSpeed *= -1;
-            x = rightEdge - radius;
+        if (getX() + radius >= rightEdge) {
+            setXSpeed(getXSpeed() * -1);
+            setX(rightEdge - radius);
         }
 
-        if (y - radius <= 0) {
-            ySpeed *= -1;
-            y = 0 + radius;
+        if (getY() - radius <= 0) {
+            setYSpeed(getYSpeed() * -1);
+            setY(0 + radius);
         }
 
-        if (y + radius >= bottomEdge) {
-            ySpeed *= -1;
-            y = bottomEdge - radius;
+        if (getY() + radius >= bottomEdge) {
+            setYSpeed(getYSpeed() * -1);
+            setY(bottomEdge - radius);
         }
     }
 

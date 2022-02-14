@@ -14,6 +14,11 @@ public class GravityBallAnimation extends JPanel {
     private Graphics g;
     private Timer timer;
     private GravityBall ball;
+    private Double ballXSpeed;
+    private Double ballYSpeed;
+    private Double ballX;
+    private Double ballY;
+
 
     public GravityBallAnimation() {
         // set up Buffered Image and Graphics objects
@@ -24,6 +29,7 @@ public class GravityBallAnimation extends JPanel {
         ball.setXAcceleration(0.0);
         ball.setYAcceleration(9.8);
         ball.setInitialVelocity(10, 45);
+
 
 
         timer = new Timer(deltaTime, new TimerListener());
@@ -38,8 +44,20 @@ public class GravityBallAnimation extends JPanel {
 
             g.setColor(Color.BLUE);
             g.fillRect(0, 0, WIDTH, HEIGHT);
-            ball.launch(0, 0, deltaTime);
+            ball.launch(WIDTH, HEIGHT, deltaTime);
             ball.draw(g);
+
+            ballXSpeed = (Double) ball.getXSpeed();
+            ballYSpeed = (Double) ball.getYSpeed();
+            ballX = (Double) ball.getX();
+            ballY = (Double) ball.getY();
+
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
+            g.drawString("X Speed: " + ballXSpeed.toString(), 75, 100);
+            g.drawString("Y Speed: " + ballYSpeed.toString(), 75, 130);
+            g.drawString("X Coordinate: " + ballX.toString(), 75, 160);
+            g.drawString("Y Coordinate: " + ballY.toString(), 75, 190);
 
             repaint();
         }
