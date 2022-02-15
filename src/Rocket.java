@@ -20,7 +20,7 @@ public class Rocket {
 		ySpeed = speed;
 	}
 
-	public double getySpeed() {
+	public double getYSpeed() {
 		return ySpeed;
 	}
 
@@ -28,19 +28,19 @@ public class Rocket {
 		ySpeed = speed;
 	}
 
-	public double getx() {
+	public double getX() {
 		return x;
 	}
 
-	public void setx(int xPos) {
+	public void setX(int xPos) {
 		x = xPos;
 	}
 
-	public double gety() {
+	public double getY() {
 		return y;
 	}
 
-	public void sety(int yPos) {
+	public void setY(int yPos) {
 		y = yPos;
 	}
 
