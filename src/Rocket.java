@@ -6,11 +6,11 @@ import java.awt.Font;
 
 public class Rocket {
 
-	private int x;
-	private int y;
-	private int width;
-	private int height;
-	private int ySpeed;
+	private double x;
+	private double y;
+	private double width;
+	private double height;
+	private double ySpeed;
 
 	public Rocket(int xPos, int yPos, int speed, int width, int height) {
 		x = xPos;
@@ -20,7 +20,7 @@ public class Rocket {
 		ySpeed = speed;
 	}
 
-	public int getySpeed() {
+	public double getySpeed() {
 		return ySpeed;
 	}
 
@@ -28,7 +28,7 @@ public class Rocket {
 		ySpeed = speed;
 	}
 
-	public int getx() {
+	public double getx() {
 		return x;
 	}
 
@@ -36,7 +36,7 @@ public class Rocket {
 		x = xPos;
 	}
 
-	public int gety() {
+	public double gety() {
 		return y;
 	}
 
@@ -45,6 +45,12 @@ public class Rocket {
 	}
 
 	public void drawRocket(Graphics g) {
+
+		int x = (int) this.x;
+		int y = (int) this.y;
+		int width = (int) this.width;
+		int height = (int) this.height;
+		int ySpeed = (int) this.ySpeed;
 
 		//Body of the rocket
 		g.setColor(Color.GRAY);
