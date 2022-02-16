@@ -10,9 +10,12 @@ public class Falcon9Tester{
 
         // Step 1:
 
-        Falcon9 rocket = new Falcon9(300, 400, 0, 110, 330, 541300, 0.5, 2462.35,
-                680600, 0, 0, 0, 0);
-
+        Falcon9 rocket = new Falcon9(300, 400, 0, 110, 330, 0.5);
+        while (rocket.getTime() < 162) {
+            rocket.move(100);
+            System.out.println(rocket.getTime() + ", " + rocket.getRocketMass() + ", " + rocket.getNetForce() + ", " +
+                    rocket.getAcceleration() + ", " + rocket.getVelocity() + ", " + rocket.getAltitude());
+        }
 
 
         // Step 2:

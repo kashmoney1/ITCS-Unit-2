@@ -20,19 +20,14 @@ public class Falcon9 extends Rocket {
     private double acceleration;
     private double altitude;
     private double time;
+    private double velocity;
 
     //Constructor
-    public Falcon9(int xPos, int yPos, int speed, int width, int height, double mass, double dt, double dm,
-                   double thrust, double netForce, double acceleration, double time, double altitude) {
+    public Falcon9(int xPos, int yPos, int speed, int width, int height, double dt) {
         super(xPos, yPos, speed, width, height);
-        this.rocketMass = mass;
         this.dt = dt;
-        this.dm = dm;
-        this.thrust = thrust;
-        this.netForce = netForce;
-        this.acceleration = acceleration;
-        this.time = time;
-        this.altitude = altitude;
+        rocketMass = 541300;
+
     }
 
     //Getters and Setters
@@ -101,14 +96,21 @@ public class Falcon9 extends Rocket {
         this.time = time;
     }
 
+    public double getVelocity() {return velocity;}
+
+    public void setVelocity(double velocity) {this.velocity = velocity;}
+
     //Move Method
     public void move(int HEIGHT) {
 
-        rocketMass -= dm;
+        dm = 398900/162 * dt;
+        rocketMass = rocketMass - dm;
         netForce = thrust - (((bigG)*(rocketMass)*(earthMass))/Math.pow(earthRadius + altitude, 2));
         acceleration = netForce/rocketMass;
-        setYSpeed(((int)getYSpeed() +  (int) acceleration));
-        setY((int) (getY() - getYSpeed()));
+        velocity = velocity + acceleration * dt;
+        altitude = altitude + velocity * dt;
+        time += dt;
+
 
     }
 
