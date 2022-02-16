@@ -7,7 +7,6 @@ import java.awt.image.BufferedImage;
 
 public class Liftoff extends JPanel {
 
-	// TODO: set the initial width and height of your image
 	private static final int WIDTH = 600;
 	private static final int HEIGHT = 600;
 
@@ -25,15 +24,6 @@ public class Liftoff extends JPanel {
 
 		rocket = new Rocket(300, 400, 2, 75, 300);
 
-
-		/*
-		 * TODO: Code to setup the objects you will animate goes here
-		 * All objects declared above should be initialized here
-		 * ex. cloud = new Cloud(100, 100, 250, 70, Color.WHITE);
-		 * cloud.setXSpeed(2);
-		 */
-
-		// set up and start the Timer
 		timer = new Timer(10, new TimerListener());
 		timer.start();
 
@@ -50,7 +40,7 @@ public class Liftoff extends JPanel {
 			rocket.move();
 			
 
-			repaint(); // leave this alone, it MUST be the last thing in this method
+			repaint();
 		}
 
 	}
@@ -62,11 +52,11 @@ public class Liftoff extends JPanel {
 
 	// main method with standard graphics code
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("Animation Shell");
+		JFrame frame = new JFrame("Liftoff");
 		frame.setSize(WIDTH, HEIGHT);
 		frame.setLocation(0, 0);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setContentPane(new Liftoff()); // TODO: Change this to the name of your class!
+		frame.setContentPane(new Liftoff());
 		frame.setVisible(true);
 	}
 
