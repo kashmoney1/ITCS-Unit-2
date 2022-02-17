@@ -16,9 +16,8 @@ public class Liftoff extends JPanel {
 	private Timer timer;
 	private Rocket rocket;
 
-	// Constructor required by BufferedImage
 	public Liftoff() {
-		// set up Buffered Image and Graphics objects
+
 		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 		g = image.getGraphics();
 
@@ -29,7 +28,6 @@ public class Liftoff extends JPanel {
 
 	}
 
-	// TimerListener class that is called repeatedly by the timer
 	private class TimerListener implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -38,19 +36,15 @@ public class Liftoff extends JPanel {
 			g.fillRect(0, 0, 600, 600);
 			rocket.drawRocket(g);
 			rocket.move();
-			
 
 			repaint();
 		}
-
 	}
 
-	// do not modify this
 	public void paintComponent(Graphics g) {
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 	}
 
-	// main method with standard graphics code
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Liftoff");
 		frame.setSize(WIDTH, HEIGHT);
@@ -59,5 +53,4 @@ public class Liftoff extends JPanel {
 		frame.setContentPane(new Liftoff());
 		frame.setVisible(true);
 	}
-
 }

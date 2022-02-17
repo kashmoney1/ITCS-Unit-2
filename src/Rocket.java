@@ -73,7 +73,7 @@ public class Rocket {
 
 		//Text
 		g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
-		g.drawString("Falcon 9", x - 20, y + 150);
+		g.drawString("Falcon H", x - 20, y + 150);
 	}
 
 	public void move() {

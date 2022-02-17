@@ -3,7 +3,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class Falcon9 extends Rocket {
+public class FalconHeavy extends Rocket {
 
     //Constants
     private final double earthMass = 5.98 * (Math.pow(10, 24));
@@ -11,8 +11,8 @@ public class Falcon9 extends Rocket {
     private final double bigG = 6.67 * (Math.pow(10, -11));
     private final double g = 9.8;
     private double dt = 1;
-    private double dm = 2462.35;
-    private double thrust = 6806000;
+    private double dm = 1299542/154;
+    private double thrust = 22820000;
 
     //Variables
     private double netForce;
@@ -23,10 +23,10 @@ public class Falcon9 extends Rocket {
     private double velocity;
 
     //Constructor
-    public Falcon9(int xPos, int yPos, int speed, int width, int height, double dt) {
+    public FalconHeavy(int xPos, int yPos, int speed, int width, int height, double dt) {
         super(xPos, yPos, speed, width, height);
         this.dt = dt;
-        rocketMass = 541300;
+        rocketMass = 546443;
 
     }
 
@@ -103,7 +103,7 @@ public class Falcon9 extends Rocket {
     //Move Method
     public void move(int HEIGHT) {
 
-        dm = 398900/162 * dt;
+        dm = 1299542/154 * dt;
         rocketMass = rocketMass - dm;
         netForce = thrust - (((bigG)*(rocketMass)*(earthMass))/Math.pow(earthRadius + altitude, 2));
         acceleration = netForce/rocketMass;
@@ -112,7 +112,9 @@ public class Falcon9 extends Rocket {
         setY(getY() - getYSpeed() *dt);
         time += dt;
 
-        setY(HEIGHT * (1 - altitude/ 150000) - 300);
+
+        setY(HEIGHT * (1 - altitude/ 2000000) - 300);
     }
 }
+
 
