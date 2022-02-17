@@ -40,7 +40,7 @@ public class Rocket {
 		return y;
 	}
 
-	public void setY(int yPos) {
+	public void setY(double yPos) {
 		y = yPos;
 	}
 

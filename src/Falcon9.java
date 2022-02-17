@@ -109,7 +109,11 @@ public class Falcon9 extends Rocket {
         acceleration = netForce/rocketMass;
         velocity = velocity + acceleration * dt;
         altitude = altitude + velocity * dt;
+        setY(getY() - getYSpeed() *dt);
         time += dt;
+
+        setY(HEIGHT * (1 - altitude/ 150000) - 300);
+
 
 
     }
@@ -117,3 +121,4 @@ public class Falcon9 extends Rocket {
 
 
 }
+
