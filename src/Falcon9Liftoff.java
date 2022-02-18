@@ -49,7 +49,6 @@ public class Falcon9Liftoff extends JPanel {
             g.drawString("Altitude: " + falcon9.getAltitude(), 40, 50);
             g.drawString("Time: " + falcon9.getTime(), 40, 100);
             g.drawString("Velocity: " + falcon9.getVelocity(), 40, 150);
-            g.drawString("Y Coordinate: " + falcon9.getY(), 40, 200);
 
 
             repaint();

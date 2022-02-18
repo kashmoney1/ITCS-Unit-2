@@ -47,7 +47,6 @@ public class FalconHeavyLiftoff extends JPanel {
             g.drawString("Altitude: " + falconHeavy.getAltitude(), 40, 50);
             g.drawString("Time: " + falconHeavy.getTime(), 40, 100);
             g.drawString("Velocity: " + falconHeavy.getVelocity(), 40, 150);
-            g.drawString("Y Coordinate: " + falconHeavy.getY(), 40, 200);
 
 
             repaint();
