@@ -26,7 +26,7 @@ public class Falcon9 extends Rocket {
     public Falcon9(int xPos, int yPos, int speed, int width, int height, double dt) {
         super(xPos, yPos, speed, width, height);
         this.dt = dt;
-        rocketMass = 541300;
+        rocketMass = 541301;
 
     }
 
