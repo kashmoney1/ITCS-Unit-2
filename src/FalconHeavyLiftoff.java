@@ -44,9 +44,9 @@ public class FalconHeavyLiftoff extends JPanel {
 
             g.setColor(Color.BLACK);
             g.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-            g.drawString("Altitude: " + falconHeavy.getAltitude(), 40, 50);
-            g.drawString("Time: " + falconHeavy.getTime(), 40, 100);
-            g.drawString("Velocity: " + falconHeavy.getVelocity(), 40, 150);
+            g.drawString("Altitude: " + falconHeavy.getAltitude() + " meters", 40, 50);
+            g.drawString("Time: " + falconHeavy.getTime() + " seconds", 40, 100);
+            g.drawString("Velocity: " + falconHeavy.getVelocity() + " m/s", 40, 150);
 
 
             repaint();
