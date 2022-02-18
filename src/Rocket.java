@@ -58,8 +58,8 @@ public class Rocket {
 
 		//Top of the rocket
 		g.setColor(Color.BLACK);
-		int xPoints [] = {x, x - width/2, x + width/2};
-		int yPoints [] = {y, y + (height - 250), y + (height - 250)};
+		int xPoints [] = {x , x - width/2, x + width/2};
+		int yPoints [] = {y - 15, y + (height - 250), y + (height - 250)};
 		g.fillPolygon(xPoints, yPoints, 3);
 
 		//Sides of the rocket
@@ -71,7 +71,16 @@ public class Rocket {
 		int x3Points [] = {x - width/2, x - width, x - width/2};
 		g.fillPolygon(x3Points, y2Points, 3);
 
+		//flame of the rocket
+		g.setColor(Color.RED);
+		int y3Points [] = {y + 400, y + (height - 10), y + (height - 10)};
+		int y4Points [] = {y + 350, y + (height - 10), y + (height - 10)};
+		g.fillPolygon(xPoints, y3Points, 3);
+		g.setColor(Color.ORANGE);
+		g.fillPolygon(xPoints, y4Points, 3);
+
 		//Text
+		g.setColor(Color.BLACK);
 		g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
 		g.drawString("Falcon H", x - 20, y + 150);
 	}
