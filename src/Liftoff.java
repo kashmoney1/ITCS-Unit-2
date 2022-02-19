@@ -21,7 +21,7 @@ public class Liftoff extends JPanel {
 		image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
 		g = image.getGraphics();
 
-		rocket = new Rocket(300, 400, 2, 75, 300);
+		rocket = new Rocket(300, 400, 2, 30, 300);
 
 		timer = new Timer(10, new TimerListener());
 		timer.start();

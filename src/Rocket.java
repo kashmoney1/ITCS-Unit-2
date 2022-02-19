@@ -52,37 +52,34 @@ public class Rocket {
 		int height = (int) this.height;
 		int ySpeed = (int) this.ySpeed;
 
-		//Body of the rocket
-		g.setColor(Color.GRAY);
-		g.fillRect(x - width/2, y + (height - 250), width, height - 60);
+		//Rocket's Main Body
+		g.setColor(Color.WHITE);
+		g.fillRoundRect(x - width/2, y + (height - 250), width, height - 60, 50, 30);
 
-		//Top of the rocket
+		//Payload (Top Area)
+		g.setColor(Color.WHITE);
+		g.fillRoundRect(x - width/2 - 7, y + height - 275, width + 14, height - 225, 100, 100);
+
+		//Side Boosters
 		g.setColor(Color.BLACK);
-		int xPoints [] = {x , x - width/2, x + width/2};
-		int yPoints [] = {y - 15, y + (height - 250), y + (height - 250)};
-		g.fillPolygon(xPoints, yPoints, 3);
+		g.fillRoundRect(x - width/2 + 20, y + (height - 200), width, height - 100, 50, 30);
+		g.fillRoundRect(x - width/2 - 20, y + (height - 200), width, height - 100, 50, 30);
 
-		//Sides of the rocket
-		g.setColor(Color.BLACK);
-		int x2Points [] = {x + width/2, x + width, x + width/2};
-		int y2Points [] = {y + height - 80, y + height - 10, y + height -10};
-		g.fillPolygon(x2Points, y2Points, 3);
-
-		int x3Points [] = {x - width/2, x - width, x - width/2};
-		g.fillPolygon(x3Points, y2Points, 3);
+		//int x3Points [] = {x - width/2, x - width, x - width/2};
+		//g.fillPolygon(x3Points, y2Points, 3);
 
 		//flame of the rocket
-		g.setColor(Color.RED);
-		int y3Points [] = {y + 400, y + (height - 10), y + (height - 10)};
-		int y4Points [] = {y + 350, y + (height - 10), y + (height - 10)};
-		g.fillPolygon(xPoints, y3Points, 3);
-		g.setColor(Color.ORANGE);
-		g.fillPolygon(xPoints, y4Points, 3);
+		//g.setColor(Color.RED);
+		//int y3Points [] = {y + 400, y + (height - 10), y + (height - 10)};
+		//int y4Points [] = {y + 350, y + (height - 10), y + (height - 10)};
+		//g.fillPolygon(xPoints, y3Points, 3);
+		//g.setColor(Color.ORANGE);
+		//g.fillPolygon(xPoints, y4Points, 3);
 
 		//Text
-		g.setColor(Color.BLACK);
-		g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
-		g.drawString("Falcon H", x - 20, y + 150);
+		//g.setColor(Color.BLACK);
+		//g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
+		//g.drawString("Falcon H", x - 20, y + 150);
 	}
 
 	public void move() {
