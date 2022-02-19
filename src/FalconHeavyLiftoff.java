@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.awt.Font;
+import java.awt.GradientPaint;
+import java.awt.Graphics2D;
 
 public class FalconHeavyLiftoff extends JPanel {
 
@@ -22,7 +24,7 @@ public class FalconHeavyLiftoff extends JPanel {
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         g = image.getGraphics();
 
-        falconHeavy = new FalconHeavy(WIDTH/2, HEIGHT, 10, 75, 300, 0.05);
+        falconHeavy = new FalconHeavy(WIDTH/2, HEIGHT, 10, 30, 300, 0.05);
 
         timer = new Timer(1, new TimerListener());
         timer.start();
@@ -33,8 +35,10 @@ public class FalconHeavyLiftoff extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            g.setColor(Color.BLUE);
-            g.fillRect(0, 0, WIDTH, HEIGHT);
+            Graphics2D g2D = (Graphics2D) g;
+            GradientPaint blackToBlue = new GradientPaint(0, 0, new Color(0, 0, 0), 0, 500, new Color(0, 10, 255));
+            g2D.setPaint(blackToBlue);
+            g2D.fillRect(0, 0, WIDTH, HEIGHT);
 
             falconHeavy.drawRocket(g);
 
@@ -42,11 +46,13 @@ public class FalconHeavyLiftoff extends JPanel {
                 falconHeavy.move(HEIGHT);
             }
 
-            g.setColor(Color.BLACK);
-            g.setFont(new Font("Comic Sans MS", Font.PLAIN, 18));
-            g.drawString("Altitude: " + falconHeavy.getAltitude() + " meters", 40, 50);
-            g.drawString("Time: " + falconHeavy.getTime() + " seconds", 40, 100);
-            g.drawString("Velocity: " + falconHeavy.getVelocity() + " m/s", 40, 150);
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Comic Sans MS", Font.PLAIN, 20));
+            g.drawString("Falcon Heavy Stage 1: ", 40, 100);
+            g.setFont(new Font("Comic Sans MS", Font.PLAIN,18));
+            g.drawString("Altitude: " + falconHeavy.getAltitude() + " meters", 40, 150);
+            g.drawString("Time: " + falconHeavy.getTime() + " seconds", 40, 200);
+            g.drawString("Velocity: " + falconHeavy.getVelocity() + " m/s", 40, 250);
 
 
             repaint();

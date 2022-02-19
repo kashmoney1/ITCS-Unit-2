@@ -7,8 +7,8 @@ import java.awt.image.BufferedImage;
 
 public class Liftoff extends JPanel {
 
-	private static final int WIDTH = 600;
-	private static final int HEIGHT = 600;
+	private static final int WIDTH = 1000;
+	private static final int HEIGHT = 1000;
 
 	// required global variables
 	private BufferedImage image;
@@ -33,7 +33,7 @@ public class Liftoff extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 
 			g.setColor(Color.BLUE);
-			g.fillRect(0, 0, 600, 600);
+			g.fillRect(0, 0, WIDTH, HEIGHT);
 			rocket.drawRocket(g);
 			rocket.move();
 

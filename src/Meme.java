@@ -27,7 +27,7 @@ public class Meme extends JPanel {
 
 		ImageIcon image = new ImageIcon("Garfield.png");
 		g.drawImage(image.getImage(),WIDTH/4, HEIGHT/4, WIDTH/2, HEIGHT/2, null);
-		g.setFont(new Font("comic sans ms", Font.BOLD, 50));
+		g.setFont(new Font("Comic Sans MS", Font.BOLD, 50));
 		g.setColor(Color.WHITE);
 		g.drawString("When you realize", 290, 175);
 		g.drawString("Its Monday Again", 290, 650);

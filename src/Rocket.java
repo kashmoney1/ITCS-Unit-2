@@ -1,5 +1,6 @@
 //Akash Patel		ITCS
 
+import javax.swing.*;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Font;
@@ -54,32 +55,47 @@ public class Rocket {
 
 		//Rocket's Main Body
 		g.setColor(Color.WHITE);
-		g.fillRoundRect(x - width/2, y + (height - 250), width, height - 60, 50, 30);
+		g.fillRoundRect(x - width/2, y + (height - 250), width, height - 20, 50, 30);
 
 		//Payload (Top Area)
 		g.setColor(Color.WHITE);
-		g.fillRoundRect(x - width/2 - 7, y + height - 275, width + 14, height - 225, 100, 100);
+		g.fillOval(x - width/2 - 6, y + (height - 275), width + 12, height - 200);
 
 		//Side Boosters
+		g.setColor(Color.WHITE);
+		g.fillRoundRect(x - width/2 + 31, y + (height - 140), width, height - 130, 50, 80);
+		g.fillRoundRect(x - width/2 - 31, y + (height - 140), width, height - 130, 50, 80);
+
+		//Bottom Area
 		g.setColor(Color.BLACK);
-		g.fillRoundRect(x - width/2 + 20, y + (height - 200), width, height - 100, 50, 30);
-		g.fillRoundRect(x - width/2 - 20, y + (height - 200), width, height - 100, 50, 30);
+		g.fillRect(x - width/2 + 31, y + (height - 20), width, height - 250);
+		g.fillRect(x - width/2 - 31, y + (height - 20), width, height - 250);
+		g.fillRect(x - width/2, y + (height - 20), width, height - 250);
 
-		//int x3Points [] = {x - width/2, x - width, x - width/2};
-		//g.fillPolygon(x3Points, y2Points, 3);
+		//Flames
+		g.setColor(Color.RED);
+		int xPoints [] = {x - width/2 + 60, x - width/2 + 30, x - width/2 + 45};
+		int yPoints [] = {y + (height + 30), y + (height + 30), y + (height + 150)};
+		g.fillPolygon(xPoints, yPoints, 3);
+		int x2Points [] = {x - width/2 - 30, x - width/2, x - width/2 - 15};
+		int y2Points [] = {y + (height + 30), y + (height + 30), y + (height + 150)};
+		g.fillPolygon(x2Points, y2Points, 3);
+		int x3Points [] = {x - width/2, x - width/2 + 30, x - width/2 + 15};
+		int y3Points [] = {y + (height + 30), y + (height + 30), y + (height + 150)};
+		g.fillPolygon(x3Points, y3Points, 3);
+		g.setColor(Color.ORANGE);
+		int y4Points [] = {y + (height + 30), y + (height + 30), y + (height + 100)};
+		g.fillPolygon(xPoints, y4Points, 3);
+		int y5Points [] = {y + (height + 30), y + (height + 30), y + (height + 100)};
+		g.fillPolygon(x2Points, y5Points, 3);
+		int y6Points [] = {y + (height + 30), y + (height + 30), y + (height + 100)};
+		g.fillPolygon(x3Points, y6Points, 3);
 
-		//flame of the rocket
-		//g.setColor(Color.RED);
-		//int y3Points [] = {y + 400, y + (height - 10), y + (height - 10)};
-		//int y4Points [] = {y + 350, y + (height - 10), y + (height - 10)};
-		//g.fillPolygon(xPoints, y3Points, 3);
-		//g.setColor(Color.ORANGE);
-		//g.fillPolygon(xPoints, y4Points, 3);
+		//Text and Flag
+		g.setColor(Color.BLACK);
+		g.setFont(new Font("Comic Sans MS", Font.BOLD, 16));
+		g.drawString("FH", x - width/2 + 6, y + 100);
 
-		//Text
-		//g.setColor(Color.BLACK);
-		//g.setFont(new Font("Comic Sans MS", Font.BOLD, 12));
-		//g.drawString("Falcon H", x - 20, y + 150);
 	}
 
 	public void move() {

@@ -26,7 +26,7 @@ public class FalconHeavy extends Rocket {
     public FalconHeavy(int xPos, int yPos, int speed, int width, int height, double dt) {
         super(xPos, yPos, speed, width, height);
         this.dt = dt;
-        rocketMass = 546443;
+        rocketMass = 1420788;
 
     }
 
@@ -113,7 +113,7 @@ public class FalconHeavy extends Rocket {
         time += dt;
 
 
-        setY(HEIGHT * (1 - altitude/ 2000000) - 300);
+        setY(HEIGHT * (1 - altitude/ 300000) - 300);
     }
 }
 
