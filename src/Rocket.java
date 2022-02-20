@@ -73,22 +73,23 @@ public class Rocket {
 		g.fillRect(x - width/2, y + (height - 20), width, height - 250);
 
 		//Flames
-		g.setColor(Color.RED);
+		g.setColor(new Color(255, 0, 0));
 		int xPoints [] = {x - width/2 + 60, x - width/2 + 30, x - width/2 + 45};
-		int yPoints [] = {y + (height + 30), y + (height + 30), y + (height + 150)};
+		int yPoints [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
 		g.fillPolygon(xPoints, yPoints, 3);
 		int x2Points [] = {x - width/2 - 30, x - width/2, x - width/2 - 15};
-		int y2Points [] = {y + (height + 30), y + (height + 30), y + (height + 150)};
+		int y2Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
 		g.fillPolygon(x2Points, y2Points, 3);
 		int x3Points [] = {x - width/2, x - width/2 + 30, x - width/2 + 15};
-		int y3Points [] = {y + (height + 30), y + (height + 30), y + (height + 150)};
+		int y3Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
 		g.fillPolygon(x3Points, y3Points, 3);
-		g.setColor(Color.ORANGE);
-		int y4Points [] = {y + (height + 30), y + (height + 30), y + (height + 100)};
+		//Brightness
+		g.setColor(new Color(255, 154, 0));
+		int y4Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
 		g.fillPolygon(xPoints, y4Points, 3);
-		int y5Points [] = {y + (height + 30), y + (height + 30), y + (height + 100)};
+		int y5Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
 		g.fillPolygon(x2Points, y5Points, 3);
-		int y6Points [] = {y + (height + 30), y + (height + 30), y + (height + 100)};
+		int y6Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
 		g.fillPolygon(x3Points, y6Points, 3);
 
 		//Text and Flag
