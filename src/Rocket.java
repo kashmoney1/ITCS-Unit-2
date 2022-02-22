@@ -9,8 +9,8 @@ public class Rocket {
 
 	private double x;
 	private double y;
-	private double width;
-	private double height;
+	private final double width;
+	private final double height;
 	private double ySpeed;
 
 	public Rocket(int xPos, int yPos, int speed, int width, int height) {

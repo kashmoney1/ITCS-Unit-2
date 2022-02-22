@@ -3,7 +3,7 @@
 import java.awt.*;
 import javax.swing.*;
 
-public class Falcon9 extends Rocket {
+public class Falcon9 extends Rocket2 {
 
     //Constants
     private final double earthMass = 5.98 * (Math.pow(10, 24));
@@ -112,7 +112,7 @@ public class Falcon9 extends Rocket {
         setY(getY() - getYSpeed() * dt);
         time += dt;
 
-        setY(HEIGHT * (1 - altitude/ 150000) - 300);
+        setY(HEIGHT * (1 - altitude/ 300000) - 300);
     }
 }
 
