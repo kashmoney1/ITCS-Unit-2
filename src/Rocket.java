@@ -83,7 +83,7 @@ public class Rocket {
 		int x3Points [] = {x - width/2, x - width/2 + 30, x - width/2 + 15};
 		int y3Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
 		g.fillPolygon(x3Points, y3Points, 3);
-		//Brightness
+		//Secondary Color Flame
 		g.setColor(new Color(255, 154, 0));
 		int y4Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
 		g.fillPolygon(xPoints, y4Points, 3);
