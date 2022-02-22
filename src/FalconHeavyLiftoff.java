@@ -26,7 +26,7 @@ public class FalconHeavyLiftoff extends JPanel {
 
         falconHeavy = new FalconHeavy(WIDTH/2, HEIGHT, 10, 30, 300, 0.05);
 
-        timer = new Timer(1, new TimerListener());
+        timer = new Timer(50, new TimerListener());
         timer.start();
 
     }
