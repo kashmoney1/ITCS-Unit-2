@@ -28,14 +28,36 @@ public class Student {
         }
     }
 
-    public static void getAverageGrades() {
+    public static int getAverageGrade() {
+        int sum = 0;
+        for (int i = 0; i < grades.size(); i++) {
+            sum += grades.get(i);
+        }
+        return sum/grades.size();
+    }
 
+    public static void roundUpGrades() {
+        for (int i = 0; i < grades.size(); i++) {
+            if (grades.get(i) == 69 || grades.get(i) == 79 || grades.get(i) == 89) {
+                grades.set(i, grades.get(i) + 1);
+            }
+        }
+    }
+
+    public static void removeLowGrade() {
+        for (int i = 0; i < grades.size(); i++) {
+            
+        }
     }
 
     public static void main(String[] args) {
         Student bob = new Student();
         bob.addGrades();
+        bob.roundUpGrades();
+        bob.removeLowGrade();
         bob.displayGrades();
+        System.out.println(bob.getAverageGrade());
+
     }
 }
 

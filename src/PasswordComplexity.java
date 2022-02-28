@@ -6,7 +6,6 @@ public class PasswordComplexity {
         boolean t = true;
 
 
-
         return false;
     }
 
