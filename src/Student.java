@@ -45,9 +45,15 @@ public class Student {
     }
 
     public static void removeLowGrade() {
+        int small = grades.get(0);
+        int index = 0;
         for (int i = 0; i < grades.size(); i++) {
-            
+            if (grades.get(i) < small) {
+                small = grades.get(i);
+                index = i;
+            }
         }
+        grades.remove(index);
     }
 
     public static void main(String[] args) {

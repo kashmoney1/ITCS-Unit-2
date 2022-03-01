@@ -96,9 +96,13 @@ public class Falcon9 extends Rocket2 {
         this.time = time;
     }
 
-    public double getVelocity() {return velocity;}
+    public double getVelocity() {
+        return velocity;
+    }
 
-    public void setVelocity(double velocity) {this.velocity = velocity;}
+    public void setVelocity(double velocity) {
+        this.velocity = velocity;
+    }
 
     //Move Method
     public void move(int HEIGHT) {
