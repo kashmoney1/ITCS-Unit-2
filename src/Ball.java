@@ -25,7 +25,7 @@ public class Ball {
 	}
 
 	//Constructor (x, y, diameter, color)
-    public Ball(double x, int y, int diameter, Color color) {
+    public Ball(double x, double y, double diameter, Color color) {
 
         this.x = x;
         this.y = y;
