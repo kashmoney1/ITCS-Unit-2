@@ -4,6 +4,8 @@ import java.awt.*;
 
 public class JumpingBall extends Ball {
 
+    boolean collided = false;
+
     public JumpingBall (double x, double y, double diameter, Color color) {
         super (x, y, diameter, color);
     }
@@ -15,11 +17,16 @@ public class JumpingBall extends Ball {
     }
 
     public boolean intersectsWith (Ball otherBall) {
-        if (findDistanceFrom(otherBall.getX(), otherBall.getY()) <= (getRadius() + otherBall.getRadius())) {
-            return true;
-        } else {
-            return false;
+        boolean intersect = findDistanceFrom(otherBall.getX(), otherBall.getY()) <= (getRadius() + otherBall.getRadius());
+        if (intersect) {
+            collided = !collided;
+            if (collided) {
+                setColor(Color.RED);
+            } else {
+                setColor(Color.GREEN);
+            }
         }
+        return intersect;
     }
 
     public void move(int rightEdge, int bottomEdge) {
