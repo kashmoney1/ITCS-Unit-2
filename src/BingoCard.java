@@ -9,16 +9,21 @@ public class BingoCard {
 
     public void generateCard() {
 
-        for (int row = 0; row < card.length; row++) {
-            for (int col = 0; col < card[row].length; col++) {
-                if (row == 3 && col == 2) {
-                    card[row][col] = "F";
-                } else {
-                    card[row][col] = (int) (Math.random() * (15) + col * 15 + 1) + "";
+            for (int row = 0; row < card.length; row++) {
+                for (int col = 0; col < card[row].length; col++) {
+                    String first = (int)(Math.random()*15+(col * 15)+1) + "";
+                    String second = "";
+                    for (int row2 = 0; row2 < card.length; row2++) {
+                        for (int col2 = 0; col2 < card[row2].length; col2++) {
+                            second += card[row2][col2] + " ";
+                        }
+                    }
+                    while (second.contains(first + " ")) {
+                        first = (int)(Math.random()*15 + (col * 15)+1) + "";
+                    }
+                    card[row][col] = first;
                 }
             }
-            System.out.println();
-        }
 
         card[0][0] = "B";
         card[0][1] = "I";
