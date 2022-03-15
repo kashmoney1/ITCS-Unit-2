@@ -1,5 +1,7 @@
 //Akash Patel   ITCS
 
+import java.util.ArrayList;
+
 public class TheaterSection {
 
     private boolean[][] section;
@@ -15,7 +17,6 @@ public class TheaterSection {
         }
     }
 
-    //TODO: Complete for part 1
     public TheaterSection(boolean[][] premadeSection) {
         section = new boolean[premadeSection.length][premadeSection[0].length];
         for (int i = 0; i < premadeSection.length; i++) {
@@ -43,32 +44,48 @@ public class TheaterSection {
             System.out.println("");
             System.out.println("");
         }
-
     }
 
     public void printAvailable() {
-        System.out.println("Row\tAvailable seats");
-        System.out.println();
+        char a = 'A';
+        int count = 0;
 
+        System.out.print("\t\t");
+
+        System.out.println();
+        for (int row = 0; row < section.length; row++) {
+            boolean flag = true;
+            System.out.print("Row " + a + "\t");
+            for (int col = 0; col < section[row].length; col++) {
+                if (section[row][col]) {
+                    System.out.print((col + 1) + "\t");
+                    flag = false;
+                    count++;
+                }
+            }
+
+            if (flag) System.out.print("No Available Seats");
+            a++;
+            System.out.println("");
+            System.out.println("");
+        }
+        System.out.println("The total number of seats available is " + count);
     }
 
-
     public static void main(String[] args) {
-        //remove comments to enable test cases when ready
-		/*
+
         boolean[][] example = {{true, true, false}, {false, false, false}};
-		TheaterSection test1 = new TheaterSection(example);
-		test1.printSection();
-		System.out.println();
-		//test1.printAvailable();
-		 */
+        TheaterSection test1 = new TheaterSection(example);
+        test1.printSection();
+        System.out.println();
+        test1.printAvailable();
 
         System.out.println();
 
         TheaterSection test2 = new TheaterSection();
         test2.printSection();
         System.out.println();
-        //test2.printAvailable();
+        test2.printAvailable();
     }
 
 }
