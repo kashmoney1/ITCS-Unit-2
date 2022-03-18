@@ -23,11 +23,11 @@ public class JumpingBall extends Ball {
         if (intersect) {
             hits ++;
             collided = !collided;
-            if (collided) {
+            /*if (collided) {
                 setColor(Color.RED);
             } else {
                 setColor(Color.GREEN);
-            }
+            }*/
         }
         return intersect;
     }
@@ -36,10 +36,10 @@ public class JumpingBall extends Ball {
         setX((int) (Math.random() * (rightEdge - getDiameter()) + getRadius()));
         setY((int) (Math.random() * (bottomEdge - getDiameter()) + getRadius()));
 
-        if (hits >= 5) {
+        /*if (hits >= 5) {
             setX(5000);
             setY(5000);
-        }
+        }*/
     }
 
     public int getHits() {
