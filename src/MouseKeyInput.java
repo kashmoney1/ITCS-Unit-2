@@ -4,6 +4,11 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
 
 public class MouseKeyInput extends JPanel {
 
@@ -32,13 +37,40 @@ public class MouseKeyInput extends JPanel {
         timer = new Timer(10, new TimerListener());
         timer.start();
         addMouseListener(new Mouse());
+        addKeyListener(new Keyboard());
         setFocusable(true);
+    }
 
+    private class Keyboard implements KeyListener {
+        @Override
+        public void keyPressed(KeyEvent e) {
+
+            if(e.getKeyCode() == KeyEvent.VK_W) {
+                jumpingBall.setY(jumpingBall.getY()-10);
+            }
+            if(e.getKeyCode() == KeyEvent.VK_A) {
+                jumpingBall.setX(jumpingBall.getX()-10);
+            }
+            if(e.getKeyCode() == KeyEvent.VK_S) {
+                jumpingBall.setY(jumpingBall.getY()+10);
+            }
+            if(e.getKeyCode() == KeyEvent.VK_D) {
+                jumpingBall.setX(jumpingBall.getX() + 10);
+            }
+        }
+        @Override
+        public void keyReleased(KeyEvent e) {
+            if(e.getKeyCode() == KeyEvent.VK_X) {
+                jumpingBall.setLocation(0, 0);
+            }
+        }
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
     }
 
     private class Mouse implements MouseListener {
-
-
         @Override
         public void mouseClicked(MouseEvent e) {
             if (e.getButton() == 1) { // left click
@@ -58,8 +90,8 @@ public class MouseKeyInput extends JPanel {
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            if (e.getButton() == 3) { //right click
-                ball.setLocation(0, 0);
+            if(e.getButton() == 1 && e.isShiftDown()) {
+                ball.setRandomSpeed(10);
             }
         }
 
@@ -76,7 +108,6 @@ public class MouseKeyInput extends JPanel {
         }
     }
 
-        // TimerListener class that is called repeatedly by the timer
     private class TimerListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
