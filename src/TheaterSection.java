@@ -1,7 +1,3 @@
-//Akash Patel   ITCS
-
-import java.util.ArrayList;
-
 public class TheaterSection {
 
     private boolean[][] section;

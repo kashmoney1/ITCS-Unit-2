@@ -1,5 +1,3 @@
-//Akash Patel ITCS
-
 public class FalconHeavyTester {
 
     public static void main(String[] args) {

@@ -1,5 +1,3 @@
-//Akash Patel   ITCS
-
 import java.awt.*;
 import javax.swing.*;
 

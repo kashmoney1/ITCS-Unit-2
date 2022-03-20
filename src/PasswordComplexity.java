@@ -1,5 +1,3 @@
-//Akash Patel   ITCS
-
 public class PasswordComplexity {
 
     public static boolean isComplex(String pass) {

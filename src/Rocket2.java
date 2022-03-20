@@ -1,5 +1,3 @@
-//Akash Patel		ITCS
-
 import javax.swing.*;
 import java.awt.Color;
 import java.awt.Graphics;

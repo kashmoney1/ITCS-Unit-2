@@ -1,5 +1,3 @@
-//ITCS - Array Practice
-
 public class ArrayPractice {
 
 	private static void printArray(int[] nums) {

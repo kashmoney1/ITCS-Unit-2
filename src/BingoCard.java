@@ -1,5 +1,3 @@
-//Akash Patel   ITCS
-
 public class BingoCard {
     String[][] card = new String[6][5];
 

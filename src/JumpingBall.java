@@ -1,5 +1,3 @@
-//Akash Patel   ITCS
-
 import java.awt.*;
 
 public class JumpingBall extends Ball {

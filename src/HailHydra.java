@@ -1,6 +1,3 @@
-//Akash Patel   ITCS
-
-//required import statements
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

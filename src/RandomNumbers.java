@@ -1,4 +1,3 @@
-
 public class RandomNumbers {
 
 	public static String outcome;

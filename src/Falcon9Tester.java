@@ -1,5 +1,3 @@
-//Akash Patel ITCS
-
 public class Falcon9Tester{
 
     public static void main(String[] args) {

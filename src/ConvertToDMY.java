@@ -1,5 +1,3 @@
-//Akash Patel		ITCS
-
 import java.util.Scanner;
 
 public class ConvertToDMY {
