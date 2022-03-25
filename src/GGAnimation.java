@@ -20,6 +20,7 @@ public class GGAnimation extends JPanel {
     private Player player;
     private Laser laser;
     private Alien alien;
+    private Alien boss;
     private Timer timer;
 
 
@@ -29,9 +30,9 @@ public class GGAnimation extends JPanel {
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         g = image.getGraphics();
 
-        jumpingBall = new JumpingBall(WIDTH/2, HEIGHT/2, 50 , new Color((int) (Math.random()*255), (int) (Math.random()*255), (int) (Math.random()*255)));
-        ball = new Ball(Math.random() * WIDTH, Math.random() * HEIGHT, 100, Color.BLACK);
-        ball.setRandomSpeed(10);
+        alien = new Alien(WIDTH/4 + WIDTH/2, 100, 50 , 50);
+        player = new Player(WIDTH/2, 900, 50, 50);
+        boss = new Alien(WIDTH/4, 100, 100, 100);
 
         timer = new Timer(10, new TimerListener());
         timer.start();
@@ -44,24 +45,10 @@ public class GGAnimation extends JPanel {
         @Override
         public void keyPressed(KeyEvent e) {
 
-            if(e.getKeyCode() == KeyEvent.VK_W) {
-                jumpingBall.setY(jumpingBall.getY()-10);
-            }
-            if(e.getKeyCode() == KeyEvent.VK_A) {
-                jumpingBall.setX(jumpingBall.getX()-10);
-            }
-            if(e.getKeyCode() == KeyEvent.VK_S) {
-                jumpingBall.setY(jumpingBall.getY()+10);
-            }
-            if(e.getKeyCode() == KeyEvent.VK_D) {
-                jumpingBall.setX(jumpingBall.getX() + 10);
-            }
         }
         @Override
         public void keyReleased(KeyEvent e) {
-            if(e.getKeyCode() == KeyEvent.VK_X) {
-                jumpingBall.setLocation(0, 0);
-            }
+
         }
         @Override
         public void keyTyped(KeyEvent e) {
@@ -72,38 +59,27 @@ public class GGAnimation extends JPanel {
     private class Mouse implements MouseListener {
         @Override
         public void mouseClicked(MouseEvent e) {
-            if (e.getButton() == 1) { // left click
-                jumpingBall.setLocation(e.getX(), e.getY());
-            } else if (e.getButton() == 3) { // right click
-                ball.setLocation(e.getX(), e.getY());
-            }
 
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
-            if (e.getButton() == 1) { //left click
-                jumpingBall.setLocation(WIDTH/2, HEIGHT/2);
-            }
+
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            if(e.getButton() == 1 && e.isShiftDown()) {
-                ball.setRandomSpeed(10);
-            }
+
         }
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            ball.setXSpeed(10);
-            ball.setYSpeed(10);
+
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            ball.setXSpeed(3);
-            ball.setYSpeed(3);
+
         }
     }
 
@@ -114,15 +90,9 @@ public class GGAnimation extends JPanel {
             g.setColor(Color.BLUE);
             g.fillRect(0, 0, WIDTH, HEIGHT);
 
-            ball.move(WIDTH, HEIGHT);
-            ball.draw(g);
-
-            jumpingBall.draw(g);
-
-            if(jumpingBall.intersectsWith(ball)) {
-                jumpingBall.move(WIDTH, HEIGHT);
-                hits++;
-            }
+            alien.drawAlien(g);
+            player.drawPlayer(g);
+            boss.drawBoss(g);
 
             g.setColor(Color.WHITE);
             g.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
