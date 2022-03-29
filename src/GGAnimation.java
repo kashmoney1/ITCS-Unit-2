@@ -96,7 +96,7 @@ public class GGAnimation extends JPanel {
 
             g.setColor(Color.WHITE);
             g.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
-            g.drawString("Hits: " + hits, 50, 100);
+            g.drawString("Points: " + hits, 50, 100);
 
             repaint();
         }
