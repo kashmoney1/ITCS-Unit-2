@@ -45,16 +45,28 @@ public class GGAnimation extends JPanel {
         @Override
         public void keyPressed(KeyEvent e) {
 
+            if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+                player.setX(player.getX() - 10);
+            }
+            if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                player.setX(player.getX() + 10);
+            }
+            if(e.getKeyCode() == KeyEvent.VK_UP) {
+
+            }
         }
         @Override
         public void keyReleased(KeyEvent e) {
-
+            if(e.getKeyCode() == KeyEvent.VK_X) {
+            }
         }
         @Override
         public void keyTyped(KeyEvent e) {
 
         }
     }
+
+
 
     private class Mouse implements MouseListener {
         @Override

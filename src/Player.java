@@ -3,6 +3,22 @@ import java.awt.Graphics;
 
 public class Player {
 
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
     //Variable declaration
     private int x;
     private int y;
@@ -30,4 +46,5 @@ public class Player {
         //Cannon
         g.fillRect(x + 32, y - 50, 15, 40);
     }
+
 }

@@ -25,9 +25,10 @@ public class Alien {
         g.fillRect(x, y, 50, 50);
 
         //Eyes and mouth
-        g.setColor(Color.BLACK);
+        g.setColor(Color.RED);
         g.fillRect(x, y + 10, 10, 10);
         g.fillRect(x + 40, y + 10, 10, 10);
+        g.setColor(Color.BLACK);
         g.fillRect(x + 10, y + 30, 30, 10);
 
         //Spikes
@@ -46,9 +47,10 @@ public class Alien {
         g.fillRect(x, y, 100, 100);
 
         //Boss eyes and boss mouth
-        g.setColor(Color.BLACK);
+        g.setColor(Color.RED);
         g.fillRect(x, y + 20, 20, 20);
         g.fillRect(x + 80, y + 20, 20, 20);
+        g.setColor(Color.BLACK);
         g.fillRect(x + 20, y + 60, 60, 20);
 
         //BOSS SPIKES
