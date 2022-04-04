@@ -1,115 +1,40 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Laser extends Ball {
+public class Laser {
 
-    //Variable declaration
-    private double x;
-    private double y;
-    private double diameter;
-    private double radius;
-    private double xSpeed;
-    private double ySpeed;
-    private int hits = 0;
-    boolean collided = false;
-
-    //Default constructor
-    public Laser() {
-        x = 0;
-        y = 0;
-        diameter = 25;
-        xSpeed = 0;
-        ySpeed = 0;
-        radius = diameter/2.0;
-    }
-
-    //Constructor (x, y, diameter)
-    public Laser(double x, double y, double diameter) {
+    public Laser(int x, int y) {
         this.x = x;
         this.y = y;
-        this.diameter = diameter;
-        xSpeed = 0;
-        ySpeed = 0;
-        radius = diameter/2.0;
     }
 
-    //Distance from object
-    public double findDistanceFrom(double x, double y) {
-        double a = Math.abs(x - getX());
-        double b = Math.abs(y - getY());
-        return Math.sqrt((Math.pow(a, 2) + (Math.pow(b, 2))));
+    private int x;
+
+    public int getX() {
+        return x;
     }
 
-    //Intersects with method
-    public boolean intersectsWith (Ball otherBall) {
-        boolean intersect = findDistanceFrom(otherBall.getX(), otherBall.getY()) <= (getRadius() + otherBall.getRadius());
-        if (intersect) {
-            hits ++;
-            collided = !collided;
-        }
-        return intersect;
-    }
-
-    //Getters and Setters
-    public double getX() {
-        return this.x;
-    }
-
-    public void setX(double x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public double getY() {
-        return this.y;
+    public int getY() {
+        return y;
     }
 
-    public void setY(double y) {
+    public void setY(int y) {
         this.y = y;
     }
 
-    public double getDiameter() {
-        return this.diameter;
+    private int y;
+
+    public void move() {
+        this.y -= 7;
     }
 
-    public void setDiameter(double diameter) {
-        this.diameter = diameter;
-        radius = diameter/2.0;
-    }
-
-    public double getRadius() {
-        return this.radius;
-    }
-
-    public void setRadius(double radius) {
-        this.radius = radius;
-        diameter = radius*2;
-    }
-
-    public double getXSpeed() {
-        return this.xSpeed;
-    }
-
-    public void setXSpeed(double xSpeed) {
-        this.xSpeed = xSpeed;
-    }
-
-    public double getYSpeed() {
-        return this.ySpeed;
-    }
-
-    public void setYSpeed(double ySpeed) {
-        this.ySpeed = ySpeed;
-    }
-
-    //Draw Method
-    public void drawLaser(Graphics g) {
+    public void draw(Graphics g) {
         g.setColor(Color.GREEN);
-        g.fillRect((int) x, (int) y, 15, 30);
+        g.fillRect(this.x, this.y, 15, 45);
     }
 
-    //Set laser location
-    public void setLocation(double x, double y) {
-        this.x = x;
-        this.y = y;
-    }
 }
