@@ -56,10 +56,10 @@ public class GGAnimation extends JPanel {
         public void keyPressed(KeyEvent e) {
 
             if(e.getKeyCode() == KeyEvent.VK_LEFT) {
-                player.setX(player.getX() - 10);
+                player.setX(player.getX() - 20);
             }
             if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
-                player.setX(player.getX() + 10);
+                player.setX(player.getX() + 20);
             }
             if(e.getKeyCode() == KeyEvent.VK_UP) {
                 this.a.getLasers().add(new Laser(player.getX(), player.getY()));
