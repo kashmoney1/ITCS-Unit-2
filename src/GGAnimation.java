@@ -15,7 +15,7 @@ public class GGAnimation extends JPanel {
     private static final int HEIGHT = 1000;
 
     // required global variables
-    private BufferedImage bufferedImage;
+    private BufferedImage image;
     private Graphics g;
     private int hits = 0;
     private Player player;
@@ -36,8 +36,8 @@ public class GGAnimation extends JPanel {
     @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     public GGAnimation() {
 
-        bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-        Graphics g = bufferedImage.getGraphics();
+        image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+        g = image.getGraphics();
 
         alien = new Alien(WIDTH/4 + WIDTH/2, 100, 50 , 50);
         alienHitboxes.add(new Hitbox(WIDTH/4 + WIDTH/2, 100, 50, 50));
@@ -121,8 +121,8 @@ public class GGAnimation extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            ImageIcon image = new ImageIcon("Space.png");
-            g.drawImage(image.getImage(),WIDTH/4, HEIGHT/4, WIDTH/2, HEIGHT/2, null);
+            g.setColor(Color.BLUE);
+            g.fillRect(0, 0, WIDTH, HEIGHT);
 
             player.setCenter();
             alien.drawAlien(g);
@@ -145,7 +145,7 @@ public class GGAnimation extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        g.drawImage(bufferedImage, 0, 0, getWidth(), getHeight(), null);
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
     }
 
     // main method with standard graphics code
