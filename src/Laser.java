@@ -9,6 +9,7 @@ public class Laser {
     }
 
     private int x;
+    private int y;
 
     public int getX() {
         return x;
@@ -25,8 +26,6 @@ public class Laser {
     public void setY(int y) {
         this.y = y;
     }
-
-    private int y;
 
     public void move() {
         this.y -= 7;
