@@ -15,16 +15,17 @@ public class GGAnimation extends JPanel {
     private static final int HEIGHT = 1000;
 
     // required global variables
-    private BufferedImage image;
+    private BufferedImage bufferedImage;
     private Graphics g;
     private int hits = 0;
     private Player player;
     private Alien alien;
     private Alien boss;
     private Timer timer;
-    private Hitbox hitbox;
-    private Hitbox hitbox2;
-    private Hitbox hitbox3;
+    private ArrayList<Hitbox> alienHitboxes = new ArrayList<>();
+    private ArrayList<Hitbox> laserHitboxes = new ArrayList<>();
+    private ArrayList<Hitbox> alienLaserHitboxes = new ArrayList<>();
+    private Hitbox playerHitbox;
 
     public ArrayList<Laser> getLasers() {
         return lasers;
@@ -35,18 +36,19 @@ public class GGAnimation extends JPanel {
     @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     public GGAnimation() {
 
-        image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-        g = image.getGraphics();
+        bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
+        Graphics g = bufferedImage.getGraphics();
 
         alien = new Alien(WIDTH/4 + WIDTH/2, 100, 50 , 50);
-        hitbox = new Hitbox(WIDTH/4 + WIDTH/2, 100, 50, 50);
+        alienHitboxes.add(new Hitbox(WIDTH/4 + WIDTH/2, 100, 50, 50));
         player = new Player(WIDTH/2, 900);
+        playerHitbox = new Hitbox(WIDTH/2, 900, 80, 50);
         boss = new Alien(WIDTH/4, 100, 100, 100);
-        hitbox2 = new Hitbox(WIDTH/4, 100, 100, 100);
-
+        alienHitboxes.add(new Hitbox(WIDTH/4, 100, 100, 100));
 
         timer = new Timer(10, new TimerListener(this));
         timer.start();
+        addMouseListener(new Mouse());
         addKeyListener(new Keyboard(this));
         setFocusable(true);
     }
@@ -62,12 +64,15 @@ public class GGAnimation extends JPanel {
 
             if(e.getKeyCode() == KeyEvent.VK_LEFT) {
                 player.setX(player.getX() - 20);
+                playerHitbox.move(-20, 0);
             }
             if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
                 player.setX(player.getX() + 20);
+                playerHitbox.move(20, 0);
             }
             if(e.getKeyCode() == KeyEvent.VK_SPACE) {
                 this.a.getLasers().add(new Laser(player.getX(), player.getY()));
+                laserHitboxes.add(new Hitbox(player.getX(), player.getY(), 15, 45));
             }
         }
         @Override
@@ -81,6 +86,33 @@ public class GGAnimation extends JPanel {
         }
     }
 
+    private class Mouse implements MouseListener {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseReleased(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseEntered(MouseEvent e) {
+
+        }
+
+        @Override
+        public void mouseExited(MouseEvent e) {
+
+        }
+    }
+
     private class TimerListener implements ActionListener {
         private GGAnimation a;
         public TimerListener(GGAnimation a) {
@@ -89,22 +121,18 @@ public class GGAnimation extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            g.setColor(Color.BLUE);
-            g.fillRect(0, 0, WIDTH, HEIGHT);
+            ImageIcon image = new ImageIcon("Space.png");
+            g.drawImage(image.getImage(),WIDTH/4, HEIGHT/4, WIDTH/2, HEIGHT/2, null);
 
             player.setCenter();
             alien.drawAlien(g);
-            hitbox.draw(g);
-
 
             for (Laser laser : this.a.getLasers()) {
                 laser.move();
                 laser.draw(g);
-                hitbox3.draw(g);
             }
             player.drawPlayer(g);
             boss.drawBoss(g);
-            hitbox2.draw(g);
 
 
             g.setColor(Color.WHITE);
@@ -117,7 +145,7 @@ public class GGAnimation extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+        g.drawImage(bufferedImage, 0, 0, getWidth(), getHeight(), null);
     }
 
     // main method with standard graphics code

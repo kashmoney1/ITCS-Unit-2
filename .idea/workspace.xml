@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="aabebb94-bdaf-4954-a1a5-a3a2ba377af5" name="Changes" comment="Variables created">
-      <change afterPath="$PROJECT_DIR$/src/Falcon9Tester.java" afterDir="false" />
+    <list default="true" id="aabebb94-bdaf-4954-a1a5-a3a2ba377af5" name="Changes" comment="hitbox started">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Falcon9.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Falcon9.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Rocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Rocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GGAnimation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GGAnimation.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,8 +45,9 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.intentionPowerPack" />
   </component>
-  <component name="RunManager" selected="Application.GravityBallAnimation">
+  <component name="RunManager" selected="Application.GGAnimation">
     <configuration name="BouncingBall" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BouncingBall" />
       <module name="ITCS Unit 2 Graphics" />
@@ -58,6 +57,13 @@
     </configuration>
     <configuration name="BouncingBallTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="BouncingBallTester" />
+      <module name="ITCS Unit 2 Graphics" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GGAnimation" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GGAnimation" />
       <module name="ITCS Unit 2 Graphics" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -79,6 +85,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GGAnimation" />
         <item itemvalue="Application.GravityBallAnimation" />
         <item itemvalue="Application.BouncingBallTester" />
         <item itemvalue="Application.Liftoff" />
@@ -100,6 +107,13 @@
       <workItem from="1644882814651" duration="454000" />
       <workItem from="1644883304091" duration="185000" />
       <workItem from="1644934783430" duration="7578000" />
+      <workItem from="1648334374848" duration="144000" />
+      <workItem from="1648479688986" duration="2105000" />
+      <workItem from="1648513593110" duration="1278000" />
+      <workItem from="1648565993253" duration="2421000" />
+      <workItem from="1648738727191" duration="2926000" />
+      <workItem from="1649081569057" duration="5753000" />
+      <workItem from="1649119526458" duration="5982000" />
     </task>
     <task id="LOCAL-00001" summary="50 balls instead of 20">
       <created>1644593801823</created>
@@ -143,7 +157,28 @@
       <option name="project" value="LOCAL" />
       <updated>1644941724083</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="cannon move set">
+      <created>1648839033409</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1648839033409</updated>
+    </task>
+    <task id="LOCAL-00008" summary="lasers able to fire">
+      <created>1649114584917</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1649114584917</updated>
+    </task>
+    <task id="LOCAL-00009" summary="hitbox started">
+      <created>1649297113307</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1649297113307</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +200,10 @@
     <MESSAGE value="Settings" />
     <MESSAGE value="Created" />
     <MESSAGE value="Variables created" />
-    <option name="LAST_COMMIT_MESSAGE" value="Variables created" />
+    <MESSAGE value="cannon move set" />
+    <MESSAGE value="lasers able to fire" />
+    <MESSAGE value="hitbox started" />
+    <option name="LAST_COMMIT_MESSAGE" value="hitbox started" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="true" />
   </component>
 </project>
