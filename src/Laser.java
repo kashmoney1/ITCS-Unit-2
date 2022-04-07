@@ -3,13 +3,15 @@ import java.awt.Graphics;
 
 public class Laser {
 
+    private int x;
+    private int y;
+    private int width;
+    private int height;
+
     public Laser(int x, int y) {
         this.x = x;
         this.y = y;
     }
-
-    private int x;
-    private int y;
 
     public int getX() {
         return x;
@@ -29,6 +31,22 @@ public class Laser {
 
     public void move() {
         this.y -= 7;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
     }
 
     public void draw(Graphics g) {

@@ -7,13 +7,6 @@ public class Hitbox {
     private int width;
     private int height;
 
-    public Hitbox (int x, int y, int width, int height) {
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-    }
-
     public int getX() {
         return x;
     }
@@ -46,13 +39,28 @@ public class Hitbox {
         this.height = height;
     }
 
+    public Hitbox (int x, int y, int width, int height) {
+        this.x = x;
+        this.y = y;
+        this.width = width;
+        this.height = height;
+    }
+
     public void draw(Graphics g) {
         g.setColor(Color.GRAY);
         g.drawRect(x, y, width, height);
     }
 
-    public boolean contactMade(Hitbox h) {
+    public boolean overlaps (Hitbox r) {
 
-        return false;
+        //code copied from https://stackoverflow.com/questions/23302698/java-check-if-two-rectangles-overlap-at-any-point
+        return x < r.x + r.width && x + width > r.x && y < r.y + r.height && y + height > r.y;
     }
+
+    public void move(int xSpeed, int ySpeed) {
+        this.x += xSpeed;
+        this.y += ySpeed;
+    }
+
+
 }

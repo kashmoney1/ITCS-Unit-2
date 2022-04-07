@@ -22,6 +22,9 @@ public class GGAnimation extends JPanel {
     private Alien alien;
     private Alien boss;
     private Timer timer;
+    private Hitbox hitbox;
+    private Hitbox hitbox2;
+    private Hitbox hitbox3;
 
     public ArrayList<Laser> getLasers() {
         return lasers;
@@ -36,12 +39,14 @@ public class GGAnimation extends JPanel {
         g = image.getGraphics();
 
         alien = new Alien(WIDTH/4 + WIDTH/2, 100, 50 , 50);
+        hitbox = new Hitbox(WIDTH/4 + WIDTH/2, 100, 50, 50);
         player = new Player(WIDTH/2, 900);
         boss = new Alien(WIDTH/4, 100, 100, 100);
+        hitbox2 = new Hitbox(WIDTH/4, 100, 100, 100);
+
 
         timer = new Timer(10, new TimerListener(this));
         timer.start();
-        addMouseListener(new Mouse());
         addKeyListener(new Keyboard(this));
         setFocusable(true);
     }
@@ -61,7 +66,7 @@ public class GGAnimation extends JPanel {
             if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
                 player.setX(player.getX() + 20);
             }
-            if(e.getKeyCode() == KeyEvent.VK_UP) {
+            if(e.getKeyCode() == KeyEvent.VK_SPACE) {
                 this.a.getLasers().add(new Laser(player.getX(), player.getY()));
             }
         }
@@ -72,33 +77,6 @@ public class GGAnimation extends JPanel {
         }
         @Override
         public void keyTyped(KeyEvent e) {
-
-        }
-    }
-
-    private class Mouse implements MouseListener {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
 
         }
     }
@@ -116,13 +94,17 @@ public class GGAnimation extends JPanel {
 
             player.setCenter();
             alien.drawAlien(g);
+            hitbox.draw(g);
+
 
             for (Laser laser : this.a.getLasers()) {
                 laser.move();
                 laser.draw(g);
+                hitbox3.draw(g);
             }
             player.drawPlayer(g);
             boss.drawBoss(g);
+            hitbox2.draw(g);
 
 
             g.setColor(Color.WHITE);
