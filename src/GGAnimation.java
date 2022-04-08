@@ -18,6 +18,7 @@ public class GGAnimation extends JPanel {
     private BufferedImage image;
     private Graphics g;
     private int hits = 0;
+    private int health = 100;
     private Player player;
     private Alien alien;
     private Alien boss;
@@ -50,8 +51,8 @@ public class GGAnimation extends JPanel {
         alienHitboxes.add(new Hitbox(900, 100, 50, 50));
         alienHitboxes.add(new Hitbox(300, 100, 100, 100));
         alienHitboxes.add(new Hitbox(700, 100, 100, 100));
-        player = new Player(WIDTH/2, 900);
-        playerHitbox = new Hitbox(WIDTH/2, 900, 80, 50);
+        player = new Player(WIDTH / 2, 900);
+        playerHitbox = new Hitbox(WIDTH / 2, 900, 80, 50);
 
         timer = new Timer(10, new TimerListener(this));
         timer.start();
@@ -66,27 +67,30 @@ public class GGAnimation extends JPanel {
         public Keyboard(GGAnimation a) {
             this.a = a;
         }
+
         @Override
         public void keyPressed(KeyEvent e) {
 
-            if(e.getKeyCode() == KeyEvent.VK_LEFT) {
+            if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                 player.setX(player.getX() - 20);
                 playerHitbox.move(-20, 0);
             }
-            if(e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                 player.setX(player.getX() + 20);
                 playerHitbox.move(20, 0);
             }
-            if(e.getKeyCode() == KeyEvent.VK_SPACE) {
+            if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                 this.a.getLasers().add(new Laser(player.getX(), player.getY()));
                 laserHitboxes.add(new Hitbox(player.getX(), player.getY(), 15, 45));
             }
         }
+
         @Override
         public void keyReleased(KeyEvent e) {
-            if(e.getKeyCode() == KeyEvent.VK_X) {
+            if (e.getKeyCode() == KeyEvent.VK_X) {
             }
         }
+
         @Override
         public void keyTyped(KeyEvent e) {
 
@@ -122,9 +126,11 @@ public class GGAnimation extends JPanel {
 
     private class TimerListener implements ActionListener {
         private GGAnimation a;
+
         public TimerListener(GGAnimation a) {
             this.a = a;
         }
+
         @Override
         public void actionPerformed(ActionEvent e) {
 
@@ -133,20 +139,35 @@ public class GGAnimation extends JPanel {
 
             player.setCenter();
             player.drawPlayer(g);
-            for(int i = 0; i < aliens.size(); i++) {
-                aliens.get(i).drawAlien(g);
-            }
-
 
             for (Laser laser : this.a.getLasers()) {
                 laser.move();
                 laser.draw(g);
             }
+            for (Alien alien : aliens) {
+                alien.drawAlien(g);
+            }
+
+            // akash is a dumbass and couldn't figure this out
+            // goon++ supremacy
+            for (int i = 0; i < aliens.size(); i++) {
+                for (int j = 0; j < lasers.size(); j++) {
+                    if (aliens.get(i).intersectsWith(lasers.get(j))) {
+                        hits += 20;
+                        aliens.remove(i);
+                        i--;
+                        lasers.remove(j);
+                        j--;
+                        break;
+                    }
+                }
+            }
 
 
             g.setColor(Color.WHITE);
             g.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
-            g.drawString("Points: " + hits, 50, 100);
+            g.drawString("Points: " + hits, 25, 50);
+            g.drawString("Health: ", 200, 50);
 
             repaint();
         }
