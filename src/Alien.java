@@ -8,6 +8,25 @@ public class Alien {
     private int y;
     private int WIDTH;
     private int HEIGHT;
+    private int xPos;
+    private int yPos;
+
+    public int getXPos() {
+        return xPos;
+    }
+
+    public void setXPos(int xPos) {
+        this.xPos = xPos;
+    }
+
+    public int getYPos() {
+        return yPos;
+    }
+
+    public void setYPos(int yPos) {
+        this.yPos = yPos;
+    }
+
 
     //Constructor (x, y, width, height)
     public Alien(int xPos, int yPos, int WIDTH, int HEIGHT) {

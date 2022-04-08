@@ -1,7 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Laser {
+public class Laser{
 
     private int x;
     private int y;

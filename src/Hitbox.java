@@ -47,7 +47,7 @@ public class Hitbox {
     }
 
     public void draw(Graphics g) {
-        g.setColor(Color.GRAY);
+        g.setColor(Color.BLACK);
         g.drawRect(x, y, width, height);
     }
 

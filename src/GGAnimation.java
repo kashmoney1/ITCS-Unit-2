@@ -22,6 +22,7 @@ public class GGAnimation extends JPanel {
     private Alien alien;
     private Alien boss;
     private Timer timer;
+    private ArrayList<Alien> aliens = new ArrayList<>();
     private ArrayList<Hitbox> alienHitboxes = new ArrayList<>();
     private ArrayList<Hitbox> laserHitboxes = new ArrayList<>();
     private ArrayList<Hitbox> alienLaserHitboxes = new ArrayList<>();
@@ -39,12 +40,18 @@ public class GGAnimation extends JPanel {
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         g = image.getGraphics();
 
-        alien = new Alien(WIDTH/4 + WIDTH/2, 100, 50 , 50);
-        alienHitboxes.add(new Hitbox(WIDTH/4 + WIDTH/2, 100, 50, 50));
+        aliens.add(new Alien(100, 100, 50, 50));
+        aliens.add(new Alien(500, 100, 50, 50));
+        aliens.add(new Alien(900, 100, 50, 50));
+        aliens.add(new Alien(300, 100, 100, 100));
+        aliens.add(new Alien(700, 100, 100, 100));
+        alienHitboxes.add(new Hitbox(100, 100, 50, 50));
+        alienHitboxes.add(new Hitbox(500, 100, 50, 50));
+        alienHitboxes.add(new Hitbox(900, 100, 50, 50));
+        alienHitboxes.add(new Hitbox(300, 100, 100, 100));
+        alienHitboxes.add(new Hitbox(700, 100, 100, 100));
         player = new Player(WIDTH/2, 900);
         playerHitbox = new Hitbox(WIDTH/2, 900, 80, 50);
-        boss = new Alien(WIDTH/4, 100, 100, 100);
-        alienHitboxes.add(new Hitbox(WIDTH/4, 100, 100, 100));
 
         timer = new Timer(10, new TimerListener(this));
         timer.start();
@@ -125,14 +132,16 @@ public class GGAnimation extends JPanel {
             g.fillRect(0, 0, WIDTH, HEIGHT);
 
             player.setCenter();
-            alien.drawAlien(g);
+            player.drawPlayer(g);
+            for(int i = 0; i < aliens.size(); i++) {
+                aliens.get(i).drawAlien(g);
+            }
+
 
             for (Laser laser : this.a.getLasers()) {
                 laser.move();
                 laser.draw(g);
             }
-            player.drawPlayer(g);
-            boss.drawBoss(g);
 
 
             g.setColor(Color.WHITE);
@@ -159,5 +168,3 @@ public class GGAnimation extends JPanel {
     }
 
 }
-
-
