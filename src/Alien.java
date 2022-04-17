@@ -10,7 +10,6 @@ public class Alien {
     private int HEIGHT;
     private int xPos;
     private int yPos;
-    // yogesh is amazing
     private int radius = 50;
 
     public int getXPos() {
@@ -83,18 +82,14 @@ public class Alien {
 
     }
 
-    /**
-     * @author Yogesh Thambidurai
-     */
+    //find distance from object (alien and laser)
     public double findDistanceFrom(double x, double y) {
         double a = Math.abs(x - this.x);
         double b = Math.abs(y - this.y);
         return Math.sqrt((Math.pow(a, 2) + (Math.pow(b, 2))));
     }
 
-    /**
-     * @author Yogesh Thambidurai
-     */
+    //intersecting with alien (used for removing aliens when hit)
     public boolean intersectsWith (Laser otherBall) {
         boolean intersect = findDistanceFrom(otherBall.getX(), otherBall.getY()) <= (radius + otherBall.getHeight());
         return intersect;

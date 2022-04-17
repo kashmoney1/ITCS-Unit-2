@@ -3,6 +3,7 @@ import java.awt.Graphics;
 
 public class Laser{
 
+    //variables
     private int x;
     private int y;
     private int width;
@@ -13,6 +14,7 @@ public class Laser{
         this.y = y;
     }
 
+    //getters and setters
     public int getX() {
         return x;
     }
@@ -49,6 +51,7 @@ public class Laser{
         this.height = height;
     }
 
+    //Draw laser
     public void draw(Graphics g) {
         g.setColor(Color.GREEN);
         g.fillRect(this.x, this.y, 15, 45);

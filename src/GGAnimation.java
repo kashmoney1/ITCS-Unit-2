@@ -14,25 +14,18 @@ public class GGAnimation extends JPanel {
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 1000;
 
-    // required global variables
+    //variables
     private BufferedImage image;
     private Graphics g;
     private int hits = 0;
-    private int health = 100;
     private Player player;
-    private Alien alien;
-    private Alien boss;
     private Timer timer;
-    private ArrayList<Alien> aliens = new ArrayList<>();
-    private ArrayList<Hitbox> alienHitboxes = new ArrayList<>();
-    private ArrayList<Hitbox> laserHitboxes = new ArrayList<>();
-    private ArrayList<Hitbox> alienLaserHitboxes = new ArrayList<>();
-    private Hitbox playerHitbox;
 
+    //arraylist usages
+    private ArrayList<Alien> aliens = new ArrayList<>();
     public ArrayList<Laser> getLasers() {
         return lasers;
     }
-
     private ArrayList<Laser> lasers = new ArrayList<>();
 
     @SuppressWarnings("IntegerDivisionInFloatingPointContext")
@@ -41,22 +34,16 @@ public class GGAnimation extends JPanel {
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
         g = image.getGraphics();
 
+        //5 aliens and one player declared
         aliens.add(new Alien(100, 100, 50, 50));
         aliens.add(new Alien(500, 100, 50, 50));
         aliens.add(new Alien(900, 100, 50, 50));
         aliens.add(new Alien(300, 100, 100, 100));
         aliens.add(new Alien(700, 100, 100, 100));
-        alienHitboxes.add(new Hitbox(100, 100, 50, 50));
-        alienHitboxes.add(new Hitbox(500, 100, 50, 50));
-        alienHitboxes.add(new Hitbox(900, 100, 50, 50));
-        alienHitboxes.add(new Hitbox(300, 100, 100, 100));
-        alienHitboxes.add(new Hitbox(700, 100, 100, 100));
-        player = new Player(WIDTH / 2, 900);
-        playerHitbox = new Hitbox(WIDTH / 2, 900, 80, 50);
+        player = new Player(WIDTH/2, 900);
 
         timer = new Timer(10, new TimerListener(this));
         timer.start();
-        addMouseListener(new Mouse());
         addKeyListener(new Keyboard(this));
         setFocusable(true);
     }
@@ -71,17 +58,17 @@ public class GGAnimation extends JPanel {
         @Override
         public void keyPressed(KeyEvent e) {
 
+            //Move left
             if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                 player.setX(player.getX() - 20);
-                playerHitbox.move(-20, 0);
             }
+            //Move right
             if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
                 player.setX(player.getX() + 20);
-                playerHitbox.move(20, 0);
             }
+            //Fire lasers
             if (e.getKeyCode() == KeyEvent.VK_SPACE) {
                 this.a.getLasers().add(new Laser(player.getX(), player.getY()));
-                laserHitboxes.add(new Hitbox(player.getX(), player.getY(), 15, 45));
             }
         }
 
@@ -93,33 +80,6 @@ public class GGAnimation extends JPanel {
 
         @Override
         public void keyTyped(KeyEvent e) {
-
-        }
-    }
-
-    private class Mouse implements MouseListener {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mousePressed(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseReleased(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseEntered(MouseEvent e) {
-
-        }
-
-        @Override
-        public void mouseExited(MouseEvent e) {
 
         }
     }
@@ -140,16 +100,18 @@ public class GGAnimation extends JPanel {
             player.setCenter();
             player.drawPlayer(g);
 
+            //Draws lasers from arraylist
             for (Laser laser : this.a.getLasers()) {
                 laser.move();
                 laser.draw(g);
             }
+
+            //Draws aliens from arraylist
             for (Alien alien : aliens) {
                 alien.drawAlien(g);
             }
 
-            // akash is a dumbass and couldn't figure this out
-            // goon++ supremacy
+            //Intersects with + eliminates aliens when shot
             for (int i = 0; i < aliens.size(); i++) {
                 for (int j = 0; j < lasers.size(); j++) {
                     if (aliens.get(i).intersectsWith(lasers.get(j))) {
@@ -163,15 +125,13 @@ public class GGAnimation extends JPanel {
                 }
             }
 
-
+            //Data displayed for points player has obtained
             g.setColor(Color.WHITE);
             g.setFont(new Font("Comic Sans MS", Font.PLAIN, 30));
             g.drawString("Points: " + hits, 25, 50);
-            g.drawString("Health: ", 200, 50);
 
             repaint();
         }
-
     }
 
     public void paintComponent(Graphics g) {
