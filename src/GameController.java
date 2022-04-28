@@ -4,6 +4,7 @@
 
 //**THIS IS THE FILE YOU RUN TO PLAY THE GAME**//
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class GameController {
