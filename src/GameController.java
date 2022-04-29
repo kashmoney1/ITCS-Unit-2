@@ -4,7 +4,6 @@
 
 //**THIS IS THE FILE YOU RUN TO PLAY THE GAME**//
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class GameController {
@@ -14,10 +13,8 @@ public class GameController {
     // p1 is X and goes first
     // p2 is 0 and goes second
     private static TicTacToePlayer p1 = new YogeshSlayer("Yogesh Slayer", 1);
-    private static TicTacToePlayer  p2 = new HumanPlayer("Me", 2);
+    private static TicTacToePlayer  p2 = new HumanPlayer("Yogesh Gunaseelan Thambidurai", 2);
 
-    // Copy of the board from TicTacToe.java for players to access
-    private static int[][] board;
     private static int turnTimer = 0;
 
     // initialize the game
@@ -25,8 +22,8 @@ public class GameController {
 
     // gets a copy of the game board
     public static int[][] getBoard() {
-        board = game.getBoard();
-        return board;
+        // Copy of the board from TicTacToe.java for players to access
+        return game.getBoard();
     }
 
     public static int getTurnCount() {
@@ -86,7 +83,7 @@ public class GameController {
         int p1Victories = 0;
         int p2Victories = 0;
         int ties = 0;
-        int curWinner = 0;
+        int curWinner;
         for (int i = 0; i < numGames; i++) {
             curWinner = playGame();
             if (curWinner == 1) {
