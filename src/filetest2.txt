@@ -1,0 +1,12 @@
+Cat
+23
+Dog
+32
+Hamster
+14
+Turtle
+98
+Moose
+4
+Orangutan
+300
