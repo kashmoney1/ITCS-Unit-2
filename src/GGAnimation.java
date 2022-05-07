@@ -1,11 +1,10 @@
-import java.awt.*;
 import javax.swing.*;
-import java.awt.event.*;
-import java.awt.image.BufferedImage;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 
@@ -15,20 +14,18 @@ public class GGAnimation extends JPanel {
     private static final int HEIGHT = 1000;
 
     //variables
-    private BufferedImage image;
-    private Graphics g;
+    private final BufferedImage image;
+    private final Graphics g;
     private int hits = 0;
-    private Player player;
-    private Timer timer;
+    private final Player player;
 
     //arraylist usages
-    private ArrayList<Alien> aliens = new ArrayList<>();
+    private final ArrayList<Alien> aliens = new ArrayList<>();
     public ArrayList<Laser> getLasers() {
         return lasers;
     }
-    private ArrayList<Laser> lasers = new ArrayList<>();
+    private final ArrayList<Laser> lasers = new ArrayList<>();
 
-    @SuppressWarnings("IntegerDivisionInFloatingPointContext")
     public GGAnimation() {
 
         image = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
@@ -42,14 +39,14 @@ public class GGAnimation extends JPanel {
         aliens.add(new Alien(700, 100, 100, 100));
         player = new Player(WIDTH/2, 900);
 
-        timer = new Timer(10, new TimerListener(this));
+        Timer timer = new Timer(10, new TimerListener(this));
         timer.start();
         addKeyListener(new Keyboard(this));
         setFocusable(true);
     }
 
     private class Keyboard implements KeyListener {
-        private GGAnimation a;
+        private final GGAnimation a;
 
         public Keyboard(GGAnimation a) {
             this.a = a;
@@ -74,8 +71,7 @@ public class GGAnimation extends JPanel {
 
         @Override
         public void keyReleased(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_X) {
-            }
+            e.getKeyCode();
         }
 
         @Override
@@ -85,7 +81,7 @@ public class GGAnimation extends JPanel {
     }
 
     private class TimerListener implements ActionListener {
-        private GGAnimation a;
+        private final GGAnimation a;
 
         public TimerListener(GGAnimation a) {
             this.a = a;
@@ -100,13 +96,13 @@ public class GGAnimation extends JPanel {
             player.setCenter();
             player.drawPlayer(g);
 
-            //Draws lasers from arraylist
+            //Draw lasers from arraylist
             for (Laser laser : this.a.getLasers()) {
                 laser.move();
                 laser.draw(g);
             }
 
-            //Draws aliens from arraylist
+            //Draw aliens from arraylist
             for (Alien alien : aliens) {
                 alien.drawAlien(g);
             }
