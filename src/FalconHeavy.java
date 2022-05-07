@@ -1,16 +1,10 @@
-import java.awt.*;
-import javax.swing.*;
-
 public class FalconHeavy extends Rocket {
 
     //Constants
     private final double earthMass = 5.98 * (Math.pow(10, 24));
     private final double earthRadius = 6.38 * (Math.pow(10, 6));
     private final double bigG = 6.67 * (Math.pow(10, -11));
-    private final double g = 9.8;
-    private double dt = 1;
-    private double dm = 1299542/154;
-    private double thrust = 22820000;
+    private final double dt;
 
     //Variables
     private double netForce;
@@ -30,60 +24,20 @@ public class FalconHeavy extends Rocket {
 
     //Getters and Setters
 
-    public double getDt() {
-        return dt;
-    }
-
-    public void setDt(double dt) {
-        this.dt = dt;
-    }
-
-    public double getDm() {
-        return dm;
-    }
-
-    public void setDm(double dm) {
-        this.dm = dm;
-    }
-
-    public double getThrust() {
-        return thrust;
-    }
-
-    public void setThrust(double thrust) {
-        this.thrust = thrust;
-    }
-
     public double getNetForce() {
         return netForce;
-    }
-
-    public void setNetForce(double netForce) {
-        this.netForce = netForce;
     }
 
     public double getRocketMass() {
         return rocketMass;
     }
 
-    public void setRocketMass(double rocketMass) {
-        this.rocketMass = rocketMass;
-    }
-
     public double getAcceleration() {
         return acceleration;
     }
 
-    public void setAcceleration(double acceleration) {
-        this.acceleration = acceleration;
-    }
-
     public double getAltitude() {
         return altitude;
-    }
-
-    public void setAltitude(double altitude) {
-        this.altitude = altitude;
     }
 
     public double getTime() {
@@ -96,13 +50,12 @@ public class FalconHeavy extends Rocket {
 
     public double getVelocity() {return velocity;}
 
-    public void setVelocity(double velocity) {this.velocity = velocity;}
-
     //Move Method
     public void move(int HEIGHT) {
 
-        dm = 1299542/154 * dt;
+        double dm = 8438.584 * dt;
         rocketMass = rocketMass - dm;
+        double thrust = 22820000;
         netForce = thrust - (((bigG)*(rocketMass)*(earthMass))/Math.pow(earthRadius + altitude, 2));
         acceleration = netForce/rocketMass;
         velocity = velocity + acceleration * dt;

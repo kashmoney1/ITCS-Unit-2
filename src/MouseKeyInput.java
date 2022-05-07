@@ -14,12 +14,11 @@ public class MouseKeyInput extends JPanel {
     private static final int HEIGHT = 1000;
 
     // required global variables
-    private BufferedImage image;
-    private Graphics g;
+    private final BufferedImage image;
+    private final Graphics g;
     private int hits = 0;
-    private JumpingBall jumpingBall;
-    private Ball ball;
-    private Timer timer;
+    private final JumpingBall jumpingBall;
+    private final Ball ball;
 
 
     @SuppressWarnings("IntegerDivisionInFloatingPointContext")
@@ -32,7 +31,7 @@ public class MouseKeyInput extends JPanel {
         ball = new Ball(Math.random() * WIDTH, Math.random() * HEIGHT, 100, Color.BLACK);
         ball.setRandomSpeed(10);
 
-        timer = new Timer(10, new TimerListener());
+        Timer timer = new Timer(10, new TimerListener());
         timer.start();
         addMouseListener(new Mouse());
         addKeyListener(new Keyboard());
@@ -82,7 +81,7 @@ public class MouseKeyInput extends JPanel {
         @Override
         public void mousePressed(MouseEvent e) {
             if (e.getButton() == 1) { //left click
-                jumpingBall.setLocation(WIDTH/2, HEIGHT/2);
+                jumpingBall.setLocation(500, 500);
             }
         }
 

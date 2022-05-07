@@ -6,7 +6,7 @@ public class Student {
     private static ArrayList<Integer> grades;
 
     public Student() {
-        grades = new ArrayList<Integer>();
+        grades = new ArrayList<>();
     }
 
     public static void displayGrades() {
@@ -28,8 +28,8 @@ public class Student {
 
     public static int getAverageGrade() {
         int sum = 0;
-        for (int i = 0; i < grades.size(); i++) {
-            sum += grades.get(i);
+        for (Integer grade : grades) {
+            sum += grade;
         }
         return sum/grades.size();
     }
@@ -55,12 +55,11 @@ public class Student {
     }
 
     public static void main(String[] args) {
-        Student bob = new Student();
-        bob.addGrades();
-        bob.roundUpGrades();
-        bob.removeLowGrade();
-        bob.displayGrades();
-        System.out.println(bob.getAverageGrade());
+        addGrades();
+        roundUpGrades();
+        removeLowGrade();
+        displayGrades();
+        System.out.println(getAverageGrade());
 
     }
 }

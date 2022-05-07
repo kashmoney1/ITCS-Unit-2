@@ -1,7 +1,4 @@
-import javax.swing.*;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Font;
+import java.awt.*;
 
 public class Rocket2 {
 
@@ -9,7 +6,7 @@ public class Rocket2 {
     private double y;
     private final double width;
     private final double height;
-    private double ySpeed;
+    private final double ySpeed;
 
     public Rocket2(int xPos, int yPos, int speed, int width, int height) {
         x = xPos;
@@ -21,10 +18,6 @@ public class Rocket2 {
 
     public double getYSpeed() {
         return ySpeed;
-    }
-
-    public void setYSpeed(int speed) {
-        ySpeed = speed;
     }
 
     public double getX() {
@@ -49,7 +42,6 @@ public class Rocket2 {
         int y = (int) this.y;
         int width = (int) this.width;
         int height = (int) this.height;
-        int ySpeed = (int) this.ySpeed;
 
         //Rocket's Main Body
         g.setColor(Color.WHITE);
@@ -65,12 +57,12 @@ public class Rocket2 {
 
         //Flames
         g.setColor(new Color(255, 0, 0));
-        int xPoints [] = {x - width/2, x - width/2 + 30, x - width/2 + 15};
-        int yPoints [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
+        int[] xPoints = {x - width/2, x - width/2 + 30, x - width/2 + 15};
+        int[] yPoints = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
         g.fillPolygon(xPoints, yPoints, 3);
         //Secondary Color Flame
         g.setColor(new Color(255, 154, 0));
-        int y2Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
+        int[] y2Points = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
         g.fillPolygon(xPoints, y2Points, 3);
 
         //Text and Flag

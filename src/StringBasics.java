@@ -9,12 +9,12 @@ public class StringBasics {
 
     public static String reverse(String s) {
 
-        String reverse = "";
+        StringBuilder reverse = new StringBuilder();
         for (int i = s.length() - 1; i >= 0; i--) {
-            reverse += s.charAt(i);
+            reverse.append(s.charAt(i));
         }
 
-        return reverse;
+        return reverse.toString();
     }
 
     public static String lastFirst(String fullName) {
@@ -28,16 +28,16 @@ public class StringBasics {
 
     public static String initials(String fullName) {
 
-        Character x = fullName.charAt(0);
-        String initials = x.toString();
+        char x = fullName.charAt(0);
+        StringBuilder initials = new StringBuilder(Character.toString(x));
 
         for (int i = 0; i < fullName.length(); i++) {
             if (fullName.charAt(i) == ' ') {
-                initials += fullName.charAt(i + 1);
+                initials.append(fullName.charAt(i + 1));
             }
         }
 
-        return initials;
+        return initials.toString();
     }
 
     public static int countVowels(String s) {

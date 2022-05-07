@@ -7,16 +7,8 @@ public class GravityBall extends Ball {
 
     //Getters and Setters
 
-    public double getXAcceleration() {
-        return this.xAcceleration;
-    }
-
     public void setXAcceleration(double xAcceleration) {
         this.xAcceleration = xAcceleration;
-    }
-
-    public double getYAcceleration() {
-        return this.yAcceleration;
     }
 
     public void setYAcceleration(double yAcceleration) {

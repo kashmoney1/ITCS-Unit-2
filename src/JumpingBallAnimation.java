@@ -11,10 +11,10 @@ public class JumpingBallAnimation extends JPanel {
     private static final int deltaTime = 10;
 
     // required global variables
-    private BufferedImage image;
-    private Graphics g;
-    private ArrayList<JumpingBall> jumpingBalls = new ArrayList<>();
-    private ArrayList<Ball> balls = new ArrayList<>();
+    private final BufferedImage image;
+    private final Graphics g;
+    private final ArrayList<JumpingBall> jumpingBalls = new ArrayList<>();
+    private final ArrayList<Ball> balls = new ArrayList<>();
     private int hits = 0;
 
 
@@ -33,9 +33,9 @@ public class JumpingBallAnimation extends JPanel {
             balls.add(ball);
         }
 
-        for (int i = 0; i < jumpingBalls.size(); i++) {
-            for (int j = 0; j < balls.size(); j++) {
-                jumpingBalls.get(i).intersectsWith(balls.get(j));
+        for (JumpingBall jumpingBall : jumpingBalls) {
+            for (Ball ball : balls) {
+                jumpingBall.intersectsWith(ball);
             }
         }
 
@@ -51,17 +51,17 @@ public class JumpingBallAnimation extends JPanel {
 
             g.setColor(Color.BLUE);
             g.fillRect(0, 0, WIDTH, HEIGHT);
-            for (int i = 0; i < balls.size(); i++) {
-                balls.get(i).move(WIDTH, HEIGHT);
-                balls.get(i).draw(g);
+            for (Ball ball : balls) {
+                ball.move(WIDTH, HEIGHT);
+                ball.draw(g);
             }
-            for (int i = 0; i < jumpingBalls.size(); i++) {
-                jumpingBalls.get(i).draw(g);
+            for (JumpingBall jumpingBall : jumpingBalls) {
+                jumpingBall.draw(g);
             }
-            for (int i = 0; i < jumpingBalls.size(); i++) {
-                for (int j = 0; j < balls.size(); j++) {
-                    if (jumpingBalls.get(i).intersectsWith(balls.get(j))) {
-                        jumpingBalls.get(i).move(WIDTH, HEIGHT);
+            for (JumpingBall jumpingBall : jumpingBalls) {
+                for (Ball ball : balls) {
+                    if (jumpingBall.intersectsWith(ball)) {
+                        jumpingBall.move(WIDTH, HEIGHT);
                         hits++;
                     }
                 }

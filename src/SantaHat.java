@@ -3,17 +3,13 @@ import java.awt.Graphics;
 
 public class SantaHat {
 
-    private int x;
-    private int y;
-    private int width;
-    private int height;
+    private final int x;
+    private final int y;
 
-    public SantaHat(int xPos, int yPos, int width, int height) {
+    public SantaHat(int xPos, int yPos) {
 
         x = xPos;
         y = yPos;
-        this.width = width;
-        this.height = height;
     }
 
     public void drawSantaHat(Graphics g) {
@@ -24,8 +20,8 @@ public class SantaHat {
 
         //Triangle of Hat
         g.setColor(Color.RED);
-        int xPoints [] = {x, x + 50, x + 100};
-        int yPoints [] = {y, y - 100, y};
+        int[] xPoints = {x, x + 50, x + 100};
+        int[] yPoints = {y, y - 100, y};
         g.fillPolygon(xPoints, yPoints, 3);
 
         //Tip of Hat

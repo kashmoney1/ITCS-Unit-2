@@ -32,11 +32,11 @@ public class GGAnimation extends JPanel {
         g = image.getGraphics();
 
         //5 aliens and one player declared
-        aliens.add(new Alien(100, 100, 50, 50));
-        aliens.add(new Alien(500, 100, 50, 50));
-        aliens.add(new Alien(900, 100, 50, 50));
-        aliens.add(new Alien(300, 100, 100, 100));
-        aliens.add(new Alien(700, 100, 100, 100));
+        aliens.add(new Alien(100, 100));
+        aliens.add(new Alien(500, 100));
+        aliens.add(new Alien(900, 100));
+        aliens.add(new Alien(300, 100));
+        aliens.add(new Alien(700, 100));
         player = new Player(WIDTH/2, 900);
 
         Timer timer = new Timer(10, new TimerListener(this));
@@ -93,7 +93,6 @@ public class GGAnimation extends JPanel {
             g.setColor(Color.BLUE);
             g.fillRect(0, 0, WIDTH, HEIGHT);
 
-            player.setCenter();
             player.drawPlayer(g);
 
             //Draw lasers from arraylist

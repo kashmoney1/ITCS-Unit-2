@@ -1,14 +1,14 @@
 //Enter all test problems/review problems to solve for them in this workspace
-//Whiteboarding problems too
+//Whiteboard problems too
 
 public class Workspace {
 
     public static String mystery(String word) {
-        String output = "";
+        StringBuilder output = new StringBuilder();
         for (int i = 0; i < word.length()-1; i++) {
-            output += word.substring(i, i + 2);
+            output.append(word, i, i + 2);
         }
-        return output;
+        return output.toString();
     }
 
     public static void main(String[] args) {

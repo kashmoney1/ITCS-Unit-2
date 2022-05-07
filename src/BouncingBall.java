@@ -8,18 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-@SuppressWarnings("serial")
-
 public class BouncingBall extends JPanel {
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 800;
 
     //required global variables
-    private BufferedImage image;
-    private Graphics g;
-    private Timer timer;
-    private Ball[] balls;
+    private final BufferedImage image;
+    private final Graphics g;
+    private final Ball[] balls;
 
     //Constructor required by BufferedImage
     public BouncingBall() {
@@ -36,7 +33,7 @@ public class BouncingBall extends JPanel {
 
 
         //set up and start the Timer
-        timer = new Timer(10, new TimerListener());
+        Timer timer = new Timer(10, new TimerListener());
         timer.start();
 
     }
@@ -47,9 +44,9 @@ public class BouncingBall extends JPanel {
         public void actionPerformed(ActionEvent e) {
             g.setColor(Color.CYAN);
             g.fillRect(0, 0, WIDTH, HEIGHT);
-            for (int i = 0; i < balls.length; i++) {
-                balls[i].move(WIDTH, HEIGHT);
-                balls[i].draw(g);
+            for (Ball ball : balls) {
+                ball.move(WIDTH, HEIGHT);
+                ball.draw(g);
             }
 
             repaint();

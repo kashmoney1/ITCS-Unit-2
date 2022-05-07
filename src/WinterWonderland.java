@@ -19,7 +19,7 @@ public class WinterWonderland extends JPanel {
 		moon(g);
 		drawAmongUs(g);
 		for (int i = 100; i < 475; i+=125) {
-			new SantaHat(i, 280, 150, 125).drawSantaHat(g);
+			new SantaHat(i, 280).drawSantaHat(g);
 		}
 
 		for (int i = 450; i <= 900; i+=150) {

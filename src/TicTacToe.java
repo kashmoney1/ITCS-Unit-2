@@ -8,7 +8,7 @@
 
 public class TicTacToe {
 
-    private int[][] board; //the TicTacToe board
+    private final int[][] board; //the TicTacToe board
 
     public TicTacToe() {
         board = new int[3][3];
@@ -24,10 +24,7 @@ public class TicTacToe {
         if (column < 0 || column >= 3) {
             return false;
         }
-        if (board[row][column] != 0) {
-            return false;
-        }
-        return true;
+        return board[row][column] == 0;
     }
 
     //this method will place a game piece (X or 0) at the row/column
@@ -52,7 +49,7 @@ public class TicTacToe {
 
     //print out the current board state so the humans can read it
     public void printBoard() {
-        int current = 0;
+        int current;
         for (int i = 0; i < 3; i ++) {
             System.out.print("| ");
             for (int j = 0; j < 3; j++) {
@@ -97,7 +94,7 @@ public class TicTacToe {
                 if (board[i][j] == 0) {
                     return 0; //there is an empty space on the board, game is still going.
 
-                    //Yes I know sometimes draws are inevitable even if there are squares
+                    //Yes I know sometimes draws are inevitable even if there are squares,
                     //but we play until the board is full because I don't want to code the rest
                 }
             }
@@ -140,10 +137,7 @@ public class TicTacToe {
             return true;
         }
         //right to left diagonal
-        if (board[0][2] == player && board[1][1] == player && board [2][0] == player) {
-            return true;
-        }
-        return false;
+        return board[0][2] == player && board[1][1] == player && board[2][0] == player;
     }
 
     //returns a COPY of the current board for the AI's to read
@@ -151,9 +145,7 @@ public class TicTacToe {
     public int[][] getBoard() {
         int[][] boardCopy = new int[3][3];
         for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[0].length; j++) {
-                boardCopy[i][j] = board[i][j];
-            }
+            System.arraycopy(board[i], 0, boardCopy[i], 0, board[0].length);
         }
         return boardCopy;
     }

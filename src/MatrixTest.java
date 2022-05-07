@@ -8,11 +8,11 @@ public class MatrixTest {
             }
         }
 
-        for (int i = 0; i < ints.length; i++) {
-            for (int j = 0; j < ints[i].length; j++) {
-                System.out.print(ints[i][j] + "\t");
+        for (Integer[] integers : ints) {
+            for (Integer integer : integers) {
+                System.out.print(integer + "\t");
             }
-            System.out.println("");
+            System.out.println();
         }
         System.out.println();
         System.out.println();
@@ -25,11 +25,11 @@ public class MatrixTest {
             }
         }
 
-        for (int i = 0; i < ints.length; i++) {
-            for (int j = 0; j < ints[i].length; j++) {
-                System.out.print(ints[i][j] + "\t");
+        for (Integer[] anInt : ints) {
+            for (Integer integer : anInt) {
+                System.out.print(integer + "\t");
             }
-            System.out.println("");
+            System.out.println();
         }
         System.out.println();
         System.out.println();

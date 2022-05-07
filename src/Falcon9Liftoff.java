@@ -12,11 +12,10 @@ public class Falcon9Liftoff extends JPanel {
     private static final int HEIGHT = 1000;
 
     // required global variables
-    private BufferedImage image;
-    private Graphics g;
-    private Timer timer;
-    private Falcon9 falcon9;
-    private FalconHeavy falconHeavy;
+    private final BufferedImage image;
+    private final Graphics g;
+    private final Falcon9 falcon9;
+    private final FalconHeavy falconHeavy;
 
 
 
@@ -28,7 +27,7 @@ public class Falcon9Liftoff extends JPanel {
         falcon9 = new Falcon9(500, HEIGHT, 10, 30, 300, 0.05);
         falconHeavy = new FalconHeavy(700, HEIGHT, 10, 30, 300, 0.05);
 
-        timer = new Timer(1, new TimerListener());
+        Timer timer = new Timer(1, new TimerListener());
         timer.start();
 
     }

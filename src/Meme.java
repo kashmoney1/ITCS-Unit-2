@@ -14,7 +14,7 @@ public class Meme extends JPanel {
 	private static final int WIDTH = 1000;
 	private static final int HEIGHT = 800;
 
-	private BufferedImage bufferedImage;
+	private final BufferedImage bufferedImage;
 
 	public Meme() {
 		bufferedImage = new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);

@@ -27,7 +27,7 @@ public class HelloGraphics extends JPanel {
 		g.drawLine(1000, 400, 0, 400);
 		
 		//Sets the font and color, then draws some text on the screen
-		g.setFont(new Font("Kartika", Font.BOLD, 50));
+		g.setFont(new Font("Kartik", Font.BOLD, 50));
 		g.setColor(Color.ORANGE);
 		g.drawString("FIRST GRAPHICS PROJECT!", 50, 550);
 
@@ -42,7 +42,7 @@ public class HelloGraphics extends JPanel {
 
 	//Driver
 	public static void main (String[] args) {
-		//creates a frame and sets it's properties
+		//creates a frame and sets its properties
 		JFrame frame = new JFrame("Hello ITCS!!!!!");
 		frame.setSize(1000, 800);
 		frame.setLocation(0, 0);

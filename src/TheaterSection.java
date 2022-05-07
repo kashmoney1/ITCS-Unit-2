@@ -1,10 +1,10 @@
 public class TheaterSection {
 
-    private boolean[][] section;
+    private final boolean[][] section;
 
     public TheaterSection() {
         section = new boolean[5][20];
-        int num = 0;
+        int num;
         for (int r = 0; r < section.length; r++) {
             for (int c = 0; c < section[0].length; c++) {
                 num = (int) (Math.random() * 4);
@@ -27,18 +27,18 @@ public class TheaterSection {
             System.out.print(i + "\t");
         }
         System.out.println();
-        for (int row = 0; row < section.length; row++) {
+        for (boolean[] booleans : section) {
             System.out.print("Row " + a + "\t");
-            for (int col = 0; col < section[row].length; col++) {
-                if (section[row][col]) {
+            for (boolean aBoolean : booleans) {
+                if (aBoolean) {
                     System.out.print("*\t");
                 } else {
                     System.out.print("X\t");
                 }
             }
             a++;
-            System.out.println("");
-            System.out.println("");
+            System.out.println();
+            System.out.println();
         }
     }
 
@@ -49,11 +49,11 @@ public class TheaterSection {
         System.out.print("\t\t");
 
         System.out.println();
-        for (int row = 0; row < section.length; row++) {
+        for (boolean[] booleans : section) {
             boolean flag = true;
             System.out.print("Row " + a + "\t");
-            for (int col = 0; col < section[row].length; col++) {
-                if (section[row][col]) {
+            for (int col = 0; col < booleans.length; col++) {
+                if (booleans[col]) {
                     System.out.print((col + 1) + "\t");
                     flag = false;
                     count++;
@@ -62,8 +62,8 @@ public class TheaterSection {
 
             if (flag) System.out.print("No Available Seats");
             a++;
-            System.out.println("");
-            System.out.println("");
+            System.out.println();
+            System.out.println();
         }
         System.out.println("The total number of seats available is " + count);
     }

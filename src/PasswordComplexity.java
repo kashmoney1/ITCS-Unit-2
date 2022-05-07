@@ -15,7 +15,7 @@ public class PasswordComplexity {
         }
 
         for (int i = 0; i < pass.length(); i++) {
-            int ascii = (int)pass.charAt(i);
+            int ascii = pass.charAt(i);
             if (ascii > 33 && ascii < 64) {
                 special = true;
             }
@@ -27,10 +27,7 @@ public class PasswordComplexity {
             }
         }
 
-        if (special && upper && lower) {
-            return true;
-        }
-        return false;
+        return special && upper && lower;
     }
 
     public static void main(String[] args) {

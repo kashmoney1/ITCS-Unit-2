@@ -9,10 +9,9 @@ public class Liftoff extends JPanel {
 	private static final int HEIGHT = 1000;
 
 	// required global variables
-	private BufferedImage image;
-	private Graphics g;
-	private Timer timer;
-	private Rocket rocket;
+	private final BufferedImage image;
+	private final Graphics g;
+	private final Rocket rocket;
 
 	public Liftoff() {
 
@@ -21,7 +20,7 @@ public class Liftoff extends JPanel {
 
 		rocket = new Rocket(300, 400, 2, 30, 300);
 
-		timer = new Timer(10, new TimerListener());
+		Timer timer = new Timer(10, new TimerListener());
 		timer.start();
 
 	}

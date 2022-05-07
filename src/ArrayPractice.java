@@ -2,8 +2,8 @@ public class ArrayPractice {
 
 	private static void printArray(int[] nums) {
 
-		for (int i = 0; i < nums.length; i++) {
-			System.out.print(nums[i] + " ");
+		for (int num : nums) {
+			System.out.print(num + " ");
 		}
 		System.out.println();
 	}
@@ -13,23 +13,22 @@ public class ArrayPractice {
 		int x = nums[nums.length - 1];
 		nums[nums.length - 1] = nums[0];
 		nums[0] = x;
-		for (int i = 0; i < nums.length; i++) {
-			System.out.print(nums[i] + " ");
+		for (int num : nums) {
+			System.out.print(num + " ");
 		}
 		System.out.println();
 
 	}
 
-	private static double findAverage(int[] nums) {
+	private static void findAverage(int[] nums) {
 
 		double x = 0;
-		for (int i = 0; i < nums.length; i++) {
-			x += nums[i];
+		for (int num : nums) {
+			x += num;
 		}
 
 		System.out.println(x / nums.length);
 
-		return x / nums.length;
 	}
 
 	private static int findSmallest(int[] nums) {
@@ -45,11 +44,12 @@ public class ArrayPractice {
 		return y;
 	}
 
-	private static boolean isPresent(String[] words, String target) {
+	private static boolean isPresent(String[] words) {
 		boolean isThere = false;
-		for (int i = 0; i < words.length; i++) {
-			if (words[i].equals(target)) {
+		for (String word : words) {
+			if (word.equals("go")) {
 				isThere = true;
+				break;
 			}
 		}
 		return isThere;
@@ -69,25 +69,8 @@ public class ArrayPractice {
 		swapFirstLast(testArray);
 		findAverage(testArray);
 		System.out.println(findSmallest(testArray));
-		System.out.println(isPresent(wordsTest, "go"));
+		System.out.println(isPresent(wordsTest));
 
-	}
-
-	/*
-	 * Optional Extra Challenge. Complete if you finish early.
-	 * Given an array, nums, return true if the elements of the array are in
-	 * ascending order.
-	 * return false otherwise.
-	 * Ex.
-	 * {1, 5, 9, 9, 10, 50} -> In order
-	 * {9, 3, 5, 10, 50, 25} -> Not In Order
-	 * 
-	 * Note: you may need to create your own array in main to test this
-	 * as the given array will very rarely be in order.
-	 */
-	public static boolean isInOrder(int[] nums) {
-
-		return false; // placeholder
 	}
 
 }

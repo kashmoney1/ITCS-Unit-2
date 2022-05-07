@@ -3,7 +3,7 @@ import java.awt.Graphics;
 
 public class Snowflake {
 
-    private Color color;
+    private final Color color;
 
     public Snowflake(Color c) {
         color = c;

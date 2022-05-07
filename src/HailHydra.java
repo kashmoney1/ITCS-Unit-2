@@ -8,18 +8,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-@SuppressWarnings("serial")
-
 public class HailHydra extends JPanel {
 
     private static final int WIDTH = 1000;
     private static final int HEIGHT = 1000;
 
     //required global variables
-    private BufferedImage image;
-    private Graphics g;
-    private Timer timer;
-    private Ball ball;
+    private final BufferedImage image;
+    private final Graphics g;
+    private final Ball ball;
     ArrayList<JumpingBall> jumpingBalls = new ArrayList<>();
 
     public HailHydra() {
@@ -39,7 +36,7 @@ public class HailHydra extends JPanel {
             jumpingBalls.get(i).draw(g);
         }
 
-        timer = new Timer(10, new TimerListener());
+        Timer timer = new Timer(10, new TimerListener());
         timer.start();
 
     }
@@ -67,9 +64,9 @@ public class HailHydra extends JPanel {
                 }
             }
 
-            for (int k = 0; k < jumpingBalls.size(); k++) {
-                if (jumpingBalls.get(k).getX() != 5000) {
-                    jumpingBalls.get(k).draw(g);
+            for (JumpingBall jumpingBall : jumpingBalls) {
+                if (jumpingBall.getX() != 5000) {
+                    jumpingBall.draw(g);
                 }
             }
 

@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 //suchir and akash
 //fatherless and DEFINITELY more fatherless than our roller coaster
 public class YogeshSlayer extends TicTacToePlayer {
@@ -12,15 +10,15 @@ public class YogeshSlayer extends TicTacToePlayer {
     }
 
     public String getBoardLayout() {
-        String bl = "";
+        StringBuilder bl = new StringBuilder();
         int[][] board = GameController.game.getBoard();
-        for (int i = 0; i < board.length; i++) {
-            for (int j = 0; j < board[i].length; j++) {
-                bl += board[i][j] + "";
+        for (int[] ints : board) {
+            for (int anInt : ints) {
+                bl.append(anInt);
             }
         }
 
-        return bl;
+        return bl.toString();
     }
 
     //practically hard coding everything to make an unbeatable bot
@@ -86,11 +84,10 @@ public class YogeshSlayer extends TicTacToePlayer {
                     else if (board[1][2] == 2) {
                         if (board[2][0] == 0) {
                             move[0] = 2;
-                            move[1] = 0;
                         } else {
                             move[0] = 0;
-                            move[1] = 0;
                         }
+                        move[1] = 0;
                     } else {
                         move[0] = 1;
                         move[1] = 2;
@@ -144,22 +141,20 @@ public class YogeshSlayer extends TicTacToePlayer {
                             //if there's an O at [2][1]
                             if (board[2][1] == 2) {
                                 move[0] = 1;
-                                move[1] = 1;
                             } else {
                                 move[0] = 2;
-                                move[1] = 1;
                             }
+                            move[1] = 1;
                         }
                         //if there is an X at [0][0]
                         else if (board[0][0] == 1) {
                             //if there's an O at [0][1]
                             if (board[0][1] == 2) {
                                 move[0] = 1;
-                                move[1] = 1;
                             } else {
                                 move[0] = 0;
-                                move[1] = 1;
                             }
+                            move[1] = 1;
                         }
                     }
                 }
@@ -170,11 +165,10 @@ public class YogeshSlayer extends TicTacToePlayer {
                     if (board[1][2] == 2) {
                         //if placed on upper left corner
                         if (board[0][0] == 2) {
+                            move[0] = 2;
                             if (board[2][0] == 2) {
-                                move[0] = 2;
                                 move[1] = 1;
                             } else {
-                                move[0] = 2;
                                 move[1] = 0;
                             }
                         }
@@ -288,14 +282,12 @@ public class YogeshSlayer extends TicTacToePlayer {
                         move[0] = 0;
                         move[1] = 0;
                     } else if (getBoardLayout().equals("001121100")) {
-                        ;
                         move[0] = 2;
                         move[1] = 2;
                     }
                 } else {
                     //Center first
                     if (getBoardLayout().equals("102011002") || getBoardLayout().equals("002011102") || getBoardLayout().equals("020011012")) {
-                        ;
                         move[0] = 1;
                         move[1] = 0;
                     } else if (getBoardLayout().equals("010010122") || getBoardLayout().equals("000211102") || getBoardLayout().equals("120010012") || getBoardLayout().equals("020010112")) {
@@ -304,7 +296,6 @@ public class YogeshSlayer extends TicTacToePlayer {
                     } else if (getBoardLayout().equals("001010212") || getBoardLayout().equals("000211012")) {
                         move[0] = 0;
                         move[1] = 1;
-                        ;
                     } else if (getBoardLayout().equals("001112002") || getBoardLayout().equals("100211002") || getBoardLayout().equals("001211002") || getBoardLayout().equals("021010012")) {
                         move[0] = 2;
                         move[1] = 0;
@@ -331,8 +322,8 @@ public class YogeshSlayer extends TicTacToePlayer {
                     } else if (getBoardLayout().equals("200120101")) {
                         move[0] = 2;
                         move[1] = 1;
-                    } else if (getBoardLayout().equals("101021002")) {
-
+                    } else {
+                        getBoardLayout();
                     }
 
                 }

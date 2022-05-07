@@ -19,39 +19,14 @@ public class Player {
         this.y = y;
     }
 
-    public int getXCenter() {
-        return xCent;
-    }
-
-    public void setXCenter(int xCent) {
-        this.xCent = xCent;
-    }
-
-    public int getYCenter() {
-        return yCent;
-    }
-
-    public void setYCenter(int yCent) {
-        this.yCent = yCent;
-    }
-
     //Variable declaration
     private int x;
     private int y;
-    private int WIDTH;
-    private int HEIGHT;
-    private int xCent;
-    private int yCent;
 
     //Constructor (x, y, width, height)
     public Player(int xPos, int yPos) {
         x = xPos;
         y = yPos;
-    }
-
-    public void setCenter() {
-        xCent = x + 40;
-        yCent = y + 40;
     }
 
     //Draw method

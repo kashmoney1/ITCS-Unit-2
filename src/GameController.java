@@ -12,8 +12,8 @@ public class GameController {
     // To test your bot, replace one of the human players with your bot and play against it
     // p1 is X and goes first
     // p2 is 0 and goes second
-    private static TicTacToePlayer p1 = new YogeshSlayer("Yogesh Slayer", 1);
-    private static TicTacToePlayer  p2 = new HumanPlayer("Yogesh Gunaseelan Thambidurai", 2);
+    private static final TicTacToePlayer p1 = new YogeshSlayer("Yogesh Slayer", 1);
+    private static final TicTacToePlayer  p2 = new HumanPlayer("Yogesh Gunaseelan Thambidurai", 2);
 
     private static int turnTimer = 0;
 

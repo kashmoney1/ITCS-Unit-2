@@ -1,7 +1,4 @@
-import javax.swing.*;
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Font;
+import java.awt.*;
 
 public class Rocket {
 
@@ -9,7 +6,7 @@ public class Rocket {
 	private double y;
 	private final double width;
 	private final double height;
-	private double ySpeed;
+	private final double ySpeed;
 
 	public Rocket(int xPos, int yPos, int speed, int width, int height) {
 		x = xPos;
@@ -21,10 +18,6 @@ public class Rocket {
 
 	public double getYSpeed() {
 		return ySpeed;
-	}
-
-	public void setYSpeed(int speed) {
-		ySpeed = speed;
 	}
 
 	public double getX() {
@@ -49,7 +42,6 @@ public class Rocket {
 		int y = (int) this.y;
 		int width = (int) this.width;
 		int height = (int) this.height;
-		int ySpeed = (int) this.ySpeed;
 
 		//Rocket's Main Body
 		g.setColor(Color.WHITE);
@@ -72,22 +64,23 @@ public class Rocket {
 
 		//Flames
 		g.setColor(new Color(255, 0, 0));
-		int xPoints [] = {x - width/2 + 60, x - width/2 + 30, x - width/2 + 45};
-		int yPoints [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
+		int[] xPoints = {x - width/2 + 60, x - width/2 + 30, x - width/2 + 45};
+		int[] yPoints;
+		yPoints = new int[]{y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
 		g.fillPolygon(xPoints, yPoints, 3);
-		int x2Points [] = {x - width/2 - 30, x - width/2, x - width/2 - 15};
-		int y2Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
+		int[] x2Points = {x - width/2 - 30, x - width/2, x - width/2 - 15};
+		int[] y2Points = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
 		g.fillPolygon(x2Points, y2Points, 3);
-		int x3Points [] = {x - width/2, x - width/2 + 30, x - width/2 + 15};
-		int y3Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
+		int[] x3Points = {x - width/2, x - width/2 + 30, x - width/2 + 15};
+		int[] y3Points = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 150 + 100))};
 		g.fillPolygon(x3Points, y3Points, 3);
 		//Secondary Color Flame
 		g.setColor(new Color(255, 154, 0));
-		int y4Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
+		int[] y4Points = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
 		g.fillPolygon(xPoints, y4Points, 3);
-		int y5Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
+		int[] y5Points = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
 		g.fillPolygon(x2Points, y5Points, 3);
-		int y6Points [] = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
+		int[] y6Points = {y + (height + 30), y + (height + 30), y + (height + (int) (Math.random() * 125 + 75))};
 		g.fillPolygon(x3Points, y6Points, 3);
 
 		//Text and Flag

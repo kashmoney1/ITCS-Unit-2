@@ -3,8 +3,8 @@ import java.awt.Graphics;
 
 public class SnowyTree {
 
-    private int x;
-    private int basePoint;
+    private final int x;
+    private final int basePoint;
 
     public SnowyTree(int xPos, int basePointPos) {
 
@@ -20,8 +20,8 @@ public class SnowyTree {
 
         //Top of tree
         g.setColor(Color.WHITE);
-        int xPoints [] = {x - 50, x, x + 50};
-        int yPoints [] = {430, 360, 430};
+        int[] xPoints = {x - 50, x, x + 50};
+        int[] yPoints = {430, 360, 430};
         g.fillPolygon(xPoints, yPoints, 3);
     }
 

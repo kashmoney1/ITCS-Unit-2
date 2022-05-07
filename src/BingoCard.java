@@ -10,13 +10,13 @@ public class BingoCard {
             for (int row = 0; row < card.length; row++) {
                 for (int col = 0; col < card[row].length; col++) {
                     String first = (int)(Math.random()*15+(col * 15)+1) + "";
-                    String second = "";
-                    for (int row2 = 0; row2 < card.length; row2++) {
-                        for (int col2 = 0; col2 < card[row2].length; col2++) {
-                            second += card[row2][col2] + " ";
+                    StringBuilder second = new StringBuilder();
+                    for (String[] strings : card) {
+                        for (String string : strings) {
+                            second.append(string).append(" ");
                         }
                     }
-                    while (second.contains(first + " ")) {
+                    while (second.toString().contains(first + " ")) {
                         first = (int)(Math.random()*15 + (col * 15)+1) + "";
                     }
                     card[row][col] = first;
@@ -31,11 +31,11 @@ public class BingoCard {
     }
 
     public void displayCard() {
-        for (int row = 0; row < card.length; row++) {
-            for (int col = 0; col < card[row].length; col++) {
-                System.out.print(card[row][col] + "\t");
+        for (String[] strings : card) {
+            for (String string : strings) {
+                System.out.print(string + "\t");
             }
-            System.out.println("");
+            System.out.println();
         }
     }
 

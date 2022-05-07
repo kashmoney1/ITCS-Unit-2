@@ -1,27 +1,18 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.Timer;
-
-@SuppressWarnings("serial")
 public class BouncingBallTester extends JPanel {
 
 	private static final int WIDTH = 600;
 	private static final int HEIGHT = 600;
 
-	private BufferedImage image;
-	private Graphics g;
-	public Timer timer;
+	private final BufferedImage image;
 
 	public BouncingBallTester() {
 
 		image =  new BufferedImage(WIDTH, HEIGHT, BufferedImage.TYPE_INT_RGB);
-		g = image.getGraphics();
+		Graphics g = image.getGraphics();
 
 		// Test default constructor
 		Ball defaultBall = new Ball();
