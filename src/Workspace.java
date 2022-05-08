@@ -1,18 +1,20 @@
-//Enter all test problems/review problems to solve for them in this workspace
-//Whiteboard problems too
+/*
+Enter all test problems/review problems to solve for them in this workspace
+Whiteboard problems too
+*/
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Workspace {
 
-    public static String mystery(String word) {
-        StringBuilder output = new StringBuilder();
-        for (int i = 0; i < word.length()-1; i++) {
-            output.append(word, i, i + 2);
+    public static void main(String[] args) {
+
+        ArrayList<Integer> ints = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        for (Integer x : ints) {
+            System.out.println(x + " ");
         }
-        return output.toString();
     }
 
-    public static void main(String[] args) {
-        String test = "ITCS";
-        System.out.println(mystery(test));
-    }
+
 }
