@@ -18,19 +18,19 @@ public class WinterWonderland extends JPanel {
 		drawText(g);
 		moon(g);
 		drawAmongUs(g);
-		for (int i = 100; i < 475; i+=125) {
-			new SantaHat(i, 280).drawSantaHat(g);
-		}
+		new SantaHat(225, 270).drawSantaHat(g);
 
 		for (int i = 450; i <= 900; i+=150) {
 			new SnowyTree(i, i - 25).drawSnowyTree(g);
 		}
 
+		/*
 		Snowflake[] s = new Snowflake[85];
 		for (int i = 0; i < s.length; i++) {
 			s[i] = new Snowflake(Color.BLUE);
 			s[i].drawSnowflake(g);
 		}
+		*/
 	}
 
 	public static void gradientBackground(Graphics g) {
